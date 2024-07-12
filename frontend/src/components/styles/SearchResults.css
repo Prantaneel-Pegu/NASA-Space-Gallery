@@ -1,0 +1,61 @@
+#SearchResults{
+    margin: 1em .4em;
+}
+
+#top-matches{
+    word-wrap: break-word;
+    margin-bottom: 1em;
+}
+
+.results-grid{
+    display: grid;
+    font-size: small;
+    font-style: normal;
+}
+
+.results-tile{
+    display: inline-block;
+    width: 100%;
+    padding: 1.5em;
+    font-weight: 600;
+    background-color: var(--img-container-bg);
+    border-radius: .5em;
+}
+
+.results-image{
+    width: 100%;
+    min-height: 120px;
+}
+
+.results-description{
+    padding-top: 1.25em;
+}
+
+.search-results-link{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+#error-info {
+    text-align: center;
+    margin: 3em auto 1.5em;
+}
+
+#error-info p{
+    text-align: center;
+}
+
+
+/* Media queries */
+
+@media screen and (min-width: 750px) {
+    #top-matches{
+        margin-bottom: 2.5em;
+    }
+}
+
+@media screen and (min-width: 1135px) {
+    #top-matches{
+        margin-bottom: 3em;
+    }
+}

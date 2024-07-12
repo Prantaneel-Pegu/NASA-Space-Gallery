@@ -1,0 +1,27 @@
+.ColorSchemeToggle{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.25em;
+    padding: .75em 2em;
+}
+
+.icon{
+    font-size: 2rem;
+}
+
+.cst-github-icon, .cst-sun-icon, .cst-moon-icon {
+    width: 1.1em;
+    height: 1.1em;
+    fill: var(--text-color);
+}
+
+.cst-github-icon:hover, .cst-sun-icon:hover, .cst-moon-icon:hover {
+    cursor: pointer;
+}
+
+.toggle-hidden{
+    display: none;
+}
+
+

@@ -1,0 +1,6 @@
+Server Url: http://localhost:3001/
+
+localhost/api/images/search --> `https://images-api.nasa.gov`
+localhost/api/potd --> `https://api.nasa.gov/planetary/apod`
+localhost/api/roverphotos/search --> `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity`
+localhost/api/staticmap --> `https://maps.googleapis.com/maps/api/staticmap?scale=2&maptype=satellite`

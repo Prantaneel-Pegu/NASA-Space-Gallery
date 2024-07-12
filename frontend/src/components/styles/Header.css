@@ -1,0 +1,18 @@
+#Header{
+    color: var(--text-color);
+    text-align: center;
+}
+
+#heading-text{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color .4s;
+}
+
+
+@media screen and (min-width: 935px) {
+    #heading-text:hover {
+        color: var(--accent-color);
+    }
+}

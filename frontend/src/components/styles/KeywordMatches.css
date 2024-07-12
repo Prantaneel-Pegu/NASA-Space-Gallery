@@ -1,0 +1,59 @@
+#KeywordMatches {
+    margin: 0 -1em;
+    margin-bottom: 4em;
+}
+
+#keyword-matches-heading {
+    padding: .5em 0 2em .5em;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+#KeywordMatches .LazyLoad{
+    margin: .75em;
+}
+
+#KeywordMatches .infinite-scroll-component {
+    overflow: visible !important;
+}
+
+.keyword-matches-grid {
+    display: grid;
+    font-size: small;
+    font-style: normal;
+    word-break: break-word;
+}   
+
+.keyword-matches-link {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.keyword-matches-tile {
+    display: inline-block;
+    width: 100%;
+    padding: 1.5em;
+    background-color: var(--img-container-bg);
+    border-radius: .5em;
+}
+
+.keyword-matches-image {
+    width: 100%;
+    min-height: 120px;
+}
+
+.keyword-matches-description {
+    padding-top: 1.25em;
+    font-weight: bold;
+}
+
+#KeywordMatches .loader {
+    margin-bottom: 16em;
+}
+
+@media screen and (max-width: 550px) {
+    #keyword-matches-heading {
+        font-size: 1.15rem;
+        padding-bottom: 1.5em;
+    }
+}

@@ -1,0 +1,197 @@
+/* Variables */
+:root{
+    --body-bgcolor: white; 
+    --text-color: #0a0e13;
+    --black-color: hsla(0, 100%, 0%, 0.8);
+    --primary-color: #a6bad6;
+    --secondary-color: #325280;
+    --accent-color: #4c7fc5;
+
+    --navbar-active-page-text: var(--text-color);
+    --navbar-active-page-bg: var(--primary-color);
+    --navbar-hover-text: var(--text-color);
+    --navbar-hover-bg: var(--primary-color);
+
+    --searchBar-color: #D3D3D3;
+    --searchBar-focus-color: var(--primary-color);
+
+    --input-color: var(--searchBar-color);
+
+    --img-container-bg: var(--primary-color);
+
+    --download-btn: rgb(215, 68, 68);
+    --download-btn-shadow: var(--primary-color);
+    --download-btn-border: transparent;
+
+    --code-block-color: var(--primary-color);
+
+    --potd-copyright: var(--text-color);
+
+    --mp-legend: var(--secondary-color);
+
+    --api-docs-li: #325280;
+    --api-code-bg: var(--primary-color); 
+
+    --footer-bgcolor: var(--primary-color); 
+    --footer-heading-color: #0a0e13;
+
+    --project-tech-text: #325280;
+
+    --fsz1: 10px;
+
+    --z-index-navbar: 100;
+    --z-index-navpanel: 1000;
+
+    --navbar-height: 94px;
+    --gallery-mtop: var(--navbar-height);
+
+    --loader-color-1: var(--primary-color);
+    --loader-color-2: var(--secondary-color);
+    --loader-color-3: var(--accent-color);
+}
+
+
+/* General Classes */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    color-scheme: dark light;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--body-bgcolor);
+    font-family: Inter, Poppins, sans-serif;
+    font-size: var(--fsz1);
+    color: var(--text-color);
+}
+
+hr{
+    border: 0;
+    margin: 1em 0 0 0;
+    border-bottom: 1px solid rgb(41, 40, 40);
+}
+
+
+/* Dark Mode */
+
+body.dark-mode{
+    --body-bgcolor: #0a0e13;
+    --text-color: #e9ecf1;
+    --primary-color: #8FABD9;
+    --secondary-color: #284E8A;
+    --accent-color: #3C74CE;
+
+    --navbar-active-page-text: #3C74CE;
+    --navbar-active-page-bg: black;
+    --navbar-hover-text: #3C74CE;
+    --navbar-hover-bg: black;
+
+    --searchBar-color: rgb(19, 19, 20);
+    --searchBar-focus-color: #3C74CE;
+
+    --img-container-bg: var(--black-color);
+
+    --download-btn: rgb(134, 40, 40);
+    --download-btn-shadow: black;
+    --download-btn-border: black;
+
+    --code-block-color: #284E8A;
+
+    --potd-copyright: var(--primary-color);
+
+    --mp-legend: var(--primary-color);
+
+    --api-docs-li: #3C74CE;
+    --api-code-bg: #284E8A;
+
+    --footer-bgcolor: hsla(0, 100%, 0%, 0.8);
+    --footer-heading-color: #3C74CE;
+
+    --project-tech-text: #3C74CE;
+
+    --loader-color-1: #1c1515;
+    --loader-color-2: #666;
+    --loader-color-3: #000;
+}
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 1em;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(25, 25, 25); 
+    border-radius: 10px;
+  } 
+
+::-webkit-scrollbar-thumb {
+    background: rgb(76, 74, 74); 
+}
+
+
+/* Loading animation */
+.loader {
+    margin: 5em auto;
+    --s: 20px;
+    --_d: calc(0.353*var(--s));
+    width: calc(var(--s) + var(--_d));
+    aspect-ratio: 1;
+    display: grid;
+}
+
+.loader:before,
+.loader:after {
+    content: "";
+    grid-area: 1/1;
+    clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));
+    background:
+      conic-gradient(from -90deg at calc(100% - var(--_d)) var(--_d),
+       var(--loader-color-1) 135deg,var(--loader-color-2) 0 270deg,var(--loader-color-3) 0);
+    animation: l6 2s infinite;
+}
+
+.loader:after {
+    animation-delay:-1s;
+}
+
+@keyframes l6{
+    0%  {transform:translate(0,0)}
+    25% {transform:translate(30px,0)}
+    50% {transform:translate(30px,30px)}
+    75% {transform:translate(0,30px)}
+    100%{transform:translate(0,0)}
+}
+  
+
+/* Specialized Selectors */
+
+.highlight{
+    color: var(--accent-color);
+}
+
+#main {
+    flex: 1;
+    min-height: calc(100vh - var(--navbar-height) - var(--footer-margin));
+}
+
+
+/* Media queries */
+
+@media screen and (min-width: 720px) {
+    :root {
+        --fsz1: 10px;
+    }
+}
+
+
+
+

@@ -1,0 +1,23 @@
+ISSUES AT HAND / KNOWN ISSUES:
+    1/ Error page is not optimised for pc.
+
+FEATURES TO BE ADDED:
+
+    X/ Check if cors is needed in production in backend server.ts
+    1/ Change API Paths in production. (ie. in ApiDocs link, other links etc)
+    6/ Make all links live
+
+DESIGN TASKS:
+ 
+    1/ Revamp UI
+    2/ Accessibility
+    3/ Color Schemes
+
+END TASKS:
+    1/ Clean code & use proper html elements
+    4/ Generate and study chrome lighthouse report
+    6/ Write blog about my experience while creating this project
+
+MISC:
+
+    1/ Tell how many APIs were used

@@ -1,0 +1,106 @@
+#NavBarCompact{
+    width: 100%;
+    background-color: var(--body-bgcolor);
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    z-index: var(--z-index-navbar);
+}
+
+#NavBarLong {
+    display: none;
+}
+
+#navbar-header {
+    display: block;
+    padding: 1em 0;
+    padding-right: 2em;
+    width: max-content;
+}
+
+#navbar-header-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color .4s;
+}
+
+#navbar-header-text:hover {
+    color: var(--accent-color);
+}
+
+#navbar-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 935px) {
+
+    :root {
+        --navbar-height: 1.75em !important;
+        --gallery-mtop: 0px !important;
+    }
+
+    #NavBarCompact {
+        display: none;
+    }
+
+    #NavBarLong {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        border: 0;
+        border-bottom: 1px solid rgb(41, 40, 40);
+        width: 100%;
+        padding: 0 4.1em;
+    }
+
+    .nav_link {
+        padding: 1.5em 1.5em !important;
+        height: 100% !important;
+    }
+
+    .nav_link.active {
+        color: var(--navbar-active-page-text) !important;
+        background-color: var(--navbar-active-page-bg) !important;
+        backdrop-filter: blur(1em) !important;
+    }
+
+    .ColorSchemeToggle {
+        width: max-content !important;
+        margin-left: 2.5em !important;
+        padding: 1em 0 !important;
+        gap: 2.5em !important;
+        justify-content: space-around !important;
+    }
+}
+
+@media screen and (min-width: 1135px) {
+    #NavBarLong {
+        justify-content: space-between;
+        padding: 0 4.75em;
+    }
+}
+
+@media screen and (min-width: 1375px) {
+    #NavBarLong {
+        justify-content: space-between;
+        padding: 0 5.5em;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    #NavBarLong {
+        padding: 0 7.75em;
+    }
+}

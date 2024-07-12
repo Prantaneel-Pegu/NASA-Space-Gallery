@@ -1,0 +1,32 @@
+#router-error {
+    margin-top: var(--navbar-height);
+    text-align: center;
+    font-size: 1rem;
+}
+
+#router-error-code {
+    margin: 3.75em 0 0;
+    font-size: 2.75rem;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--accent-color);
+}
+
+#router-error-divider {
+    border: 3px solid black;
+}
+
+#router-error-heading {
+    font-size: 1.75rem;
+    margin: 1.25em 0 1em 0;
+    color: var(--primary-color);
+}
+
+#router-error-desc {
+    padding: 0 2em;
+    font-size: 1rem;
+}
+
+#router-error a{
+    color: var(--accent-color);
+}

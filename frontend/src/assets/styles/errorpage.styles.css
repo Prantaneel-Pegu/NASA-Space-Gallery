@@ -1,0 +1,59 @@
+/* Variables */
+:root{
+    --body-bgcolor: #0a0e13;
+    --text-color: #e9ecf1;
+    --primary-color: #a6bad6;
+    --secondary-color: #325280;
+    --accent-color: #4c7fc5;
+    --black-color: hsla(0, 100%, 0%, 0.8);
+    --fsz1: 10px;
+}
+
+
+/* General Classes */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    color-scheme: dark;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--body-bgcolor);
+    font-family: Inter, Poppins, sans-serif;
+    font-size: var(--fsz1);
+    color: var(--text-color);
+}
+
+p {
+    font-size: 1.15rem;
+}
+
+
+/* Specialized Selectors */
+
+#error-info {
+    margin: 10em 4em 0;
+}
+
+#error-heading {
+    color: var(--accent-color);
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+#error-desc {
+    margin: 2em 0 .5em;
+    font-size: 1.15rem;
+}
+
+#error-emoji {
+    font-size: 1.5rem;
+}
