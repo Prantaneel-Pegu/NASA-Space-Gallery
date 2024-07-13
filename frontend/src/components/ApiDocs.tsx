@@ -9,7 +9,7 @@ function ApiDocs () {
                 </h1>
 
                 <p id="api-address">
-                    The API is located at <a href="http://localhost:3001/api" id="api-link">/api</a>.
+                    The API is located at <a href="/api" id="api-link">/api</a>.
                 </p>
                 <p id="api-return-data">It returns data in a JSON format, except for satellite imagery.</p>
 
@@ -65,8 +65,8 @@ function ApiDocs () {
                             </p>
                             <code className="usage-example-code">
                                 <p className="usage-example-head">Example query: </p>
-                                <a href="http://localhost:3001/api/images/search?query=space&page_size=50" className="usage-example-code-link">
-                                    http://localhost:3001/api/images/search?query=space&page_size=50
+                                <a href="/api/images/search?query=space&page_size=50" className="usage-example-code-link">
+                                    /api/images/search?query=space&page_size=50
                                 </a>
                             </code>
                         </article>
@@ -79,8 +79,8 @@ function ApiDocs () {
                             </p>
                             <code className="usage-example-code">
                                 <p className="usage-example-head">Example query: </p>
-                                <a href="http://localhost:3001/api/images/search?image_id=PIA14417" className="usage-example-code-link">
-                                    http://localhost:3001/api/images/search?image_id=PIA14417
+                                <a href="/api/images/search?image_id=PIA14417" className="usage-example-code-link">
+                                    /api/images/search?image_id=PIA14417
                                 </a>
                             </code>
                         </article>
@@ -93,8 +93,8 @@ function ApiDocs () {
                             </p>
                             <code className="usage-example-code">
                                 <p className="usage-example-head">Example query: </p>
-                                <a href="http://localhost:3001/api/images/search?keywords=galaxy" className="usage-example-code-link">
-                                    http://localhost:3001/api/images/search?keywords=galaxy
+                                <a href="/api/images/search?keywords=galaxy" className="usage-example-code-link">
+                                    /api/images/search?keywords=galaxy
                                 </a>
                             </code>
                         </article>
@@ -107,8 +107,8 @@ function ApiDocs () {
                             </p>
                             <code className="usage-example-code">
                                 <p className="usage-example-head">POTD address: </p>
-                                <a href="http://localhost:3001/api/potd" className="usage-example-code-link">
-                                    http://localhost:3001/api/potd
+                                <a href="/api/potd" className="usage-example-code-link">
+                                    /api/potd
                                 </a>
                             </code>
                         </article>
@@ -121,8 +121,8 @@ function ApiDocs () {
                             </p>
                             <code className="usage-example-code">
                                 <p className="usage-example-head">Example query: </p>
-                                <a href="http://localhost:3001/api/roverphotos/search?date=2015-06-03" className="usage-example-code-link">
-                                    http://localhost:3001/api/roverphotos/search?date=2015-06-03
+                                <a href="/api/roverphotos/search?date=2015-06-03" className="usage-example-code-link">
+                                    /api/roverphotos/search?date=2015-06-03
                                 </a>
                             </code>
                         </article>
@@ -157,8 +157,8 @@ function ApiDocs () {
 
                             <code className="usage-example-code">
                                 <p className="usage-example-head">Example query: </p>
-                                <a href="http://localhost:3001/api/staticmap?lat=38&long=-94&zoom=3&width=450&height=400" className="usage-example-code-link">
-                                    http://localhost:3001/api/staticmap?lat=38&long=-94&zoom=3&width=450&height=400
+                                <a href="/api/staticmap?lat=38&long=-94&zoom=3&width=450&height=400" className="usage-example-code-link">
+                                    /api/staticmap?lat=38&long=-94&zoom=3&width=450&height=400
                                 </a>
                             </code>
                         </article>

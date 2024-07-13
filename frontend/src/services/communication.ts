@@ -1,8 +1,8 @@
 import axios, { AxiosError, isAxiosError } from "axios";
 
-const nasaImagesUrl = `http://localhost:3001/api/images/search`;
-const potdUrl = `http://localhost:3001/api/potd`;
-const roverPhotosUrl = `http://localhost:3001/api/roverphotos/search`;
+const nasaImagesUrl = `/api/images/search`;
+const potdUrl = `/api/potd`;
+const roverPhotosUrl = `/api/roverphotos/search`;
 
 const requestTimeout = 14000; 
 

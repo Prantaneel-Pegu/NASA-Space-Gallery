@@ -24,7 +24,7 @@ function CoordinateImagery () {
     const imageWidth = 400;
     const imageHeight = 400;
 
-    const [mainImageSrc, setMainImageSrc] = useState(`http://localhost:3001/api/staticmap?lat=${coordinates.latitude}&long=${coordinates.longitude}&zoom=${coordinates.zoom}&width=${imageWidth}&height=${imageHeight}&isClient=false`);
+    const [mainImageSrc, setMainImageSrc] = useState(`/api/staticmap?lat=${coordinates.latitude}&long=${coordinates.longitude}&zoom=${coordinates.zoom}&width=${imageWidth}&height=${imageHeight}&isClient=false`);
 
     function handleSubmit (e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -58,7 +58,7 @@ function CoordinateImagery () {
                 newCoordinates.zoom = "18";
         }
         
-        setMainImageSrc(`http://localhost:3001/api/staticmap?lat=${newCoordinates.latitude}&long=${newCoordinates.longitude}&zoom=${newCoordinates.zoom}&width=${imageWidth}&height=${imageHeight}&isClient=false&random=${Math.random()}`)
+        setMainImageSrc(`/api/staticmap?lat=${newCoordinates.latitude}&long=${newCoordinates.longitude}&zoom=${newCoordinates.zoom}&width=${imageWidth}&height=${imageHeight}&isClient=false&random=${Math.random()}`)
         console.log(mainImageSrc,newCoordinates);
         setCoordinates(newCoordinates);
         setImgLoaded(false);
