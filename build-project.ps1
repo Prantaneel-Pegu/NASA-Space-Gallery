@@ -1,1 +1,0 @@
-Set-Location ./frontend ; npm run build ; Set-Location ../backend ; npm run build ; Set-Location .. ; 
