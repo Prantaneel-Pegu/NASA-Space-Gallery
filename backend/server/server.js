@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const express_rate_limit_1 = require("express-rate-limit");
 const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
@@ -14,14 +15,16 @@ const app = (0, express_1.default)();
 const port = parseInt(process.env.PORT || '3001') || 3001;
 const appDir = path_1.default.resolve(__dirname, `../dist`);
 const errorPage = path_1.default.resolve(__dirname, `../dist/errorpage.html`);
-// const limiter = rateLimit({
-// 	windowMs: 15 * 60 * 1000, // 1 minute
-// 	limit: 1000, // Limit each IP to 100 requests per `window` (here, per 1 minute)
-// 	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-// 	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-// });
+const limiter = (0, express_rate_limit_1.rateLimit)({
+    windowMs: 15 * 60 * 1000, // 1 minute
+    limit: 15, // Limit each IP to 100 requests per `window` (here, per 1 minute)
+    standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+    legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+app.set('trust proxy', 1 /* number of proxies between user and server */);
 app.use((0, cors_1.default)());
-// app.use('/api', limiter);
+app.use('/api', limiter);
+app.get('/ip', (request, response) => response.send(request.ip));
 app.get('/api/images/search', (req, res) => {
     const reqUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     console.log("\x1b[36m", "[server]", "\x1b[0m", ": Received request: ", reqUrl);
