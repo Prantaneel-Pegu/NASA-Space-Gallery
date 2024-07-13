@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const express_rate_limit_1 = require("express-rate-limit");
 const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
@@ -13,16 +12,16 @@ const comms_js_1 = require("./comms.js");
 dotenv_1.default.config({ path: "../" });
 const app = (0, express_1.default)();
 const port = parseInt(process.env.PORT || '3001') || 3001;
-const appDir = `dist`;
-const errorPage = `dist/errorpage.html`;
-const limiter = (0, express_rate_limit_1.rateLimit)({
-    windowMs: 15 * 60 * 1000, // 1 minute
-    limit: 1000, // Limit each IP to 100 requests per `window` (here, per 1 minute)
-    standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-    legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-});
+const appDir = path_1.default.resolve(__dirname, `../dist`);
+const errorPage = path_1.default.resolve(__dirname, `../dist/errorpage.html`);
+// const limiter = rateLimit({
+// 	windowMs: 15 * 60 * 1000, // 1 minute
+// 	limit: 1000, // Limit each IP to 100 requests per `window` (here, per 1 minute)
+// 	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+// 	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+// });
 app.use((0, cors_1.default)());
-app.use('/api', limiter);
+// app.use('/api', limiter);
 app.get('/api/images/search', (req, res) => {
     const reqUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     console.log("\x1b[36m", "[server]", "\x1b[0m", ": Received request: ", reqUrl);
@@ -144,10 +143,15 @@ app.get('/api', (req, res) => {
     });
 });
 app.use('/', express_1.default.static(appDir));
+// app.get('/', (req, res) => {
+// 	const reqUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+// 	console.log("\x1b[36m", "[server]", "\x1b[0m", ": Received request: ", reqUrl);
+//     res.sendFile(path.resolve('dist/index.html'));
+// })
 app.get('*', (req, res) => {
     const reqUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     console.log("\x1b[36m", "[server]", "\x1b[0m", ": Received request: ", reqUrl);
-    res.sendFile(path_1.default.resolve(errorPage));
+    res.sendFile(errorPage);
 });
 app.listen(port, () => {
     console.log("\x1b[32m", `[server]`, "\x1b[0m", `: Server is running at http://localhost:${port}.`);

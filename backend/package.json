@@ -1,11 +1,13 @@
 {
   "name": "nasa-space-directory-backend",
+  "type": "commonjs",
   "version": "1.0.0",
   "description": "Backend for the NASA Space Directory",
   "main": "./server/server.js",
   "scripts": {
+    "server": "node server/server.js",
     "dev": "tsx --watch src/server.ts",
-    "server": "tsc && nodemon server/server.js",
+    "deploy": "tsc && nodemon server/server.js",
     "build": " tsc",
     "lint": "eslint --ext js,ts --report-unused-disable-directives --max-warnings 0 src/"
   },
