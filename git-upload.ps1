@@ -1,3 +1,3 @@
 param([string[]]$commitName);
 
-git add . ; git commit -m "$commitName" ; git push;
+git add . ; git commit -m "$commitName" ; git push; 
