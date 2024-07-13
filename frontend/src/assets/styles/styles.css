@@ -12,6 +12,8 @@
     --navbar-hover-text: var(--text-color);
     --navbar-hover-bg: var(--primary-color);
 
+    --cst-icon-hover-color: var(--primary-color);
+
     --searchBar-color: #D3D3D3;
     --searchBar-focus-color: var(--primary-color);
 
@@ -93,6 +95,8 @@ body.dark-mode{
     --navbar-active-page-bg: black;
     --navbar-hover-text: #3C74CE;
     --navbar-hover-bg: black;
+
+    --cst-icon-hover-color: #3C74CE;
 
     --searchBar-color: rgb(19, 19, 20);
     --searchBar-focus-color: #3C74CE;

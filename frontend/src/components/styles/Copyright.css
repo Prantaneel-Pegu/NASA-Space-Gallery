@@ -49,10 +49,15 @@
     padding-left: .65em;
     font-size: 1rem;
     font-weight: 400;
+}
+
+.footer-dev-handle-link {
+    color: var(--text-color);
+    text-decoration: none;
     transition: color .4s;
 }
 
-#footer-developer-handle:hover {
+.footer-dev-handle-link:hover {
     color: var(--accent-color);
     cursor: pointer;
 }

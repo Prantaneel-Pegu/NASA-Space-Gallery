@@ -1,8 +1,9 @@
 {
-  "name": "nasa-space-directory-backend",
+  "name": "nasa-space-gallery-backend",
   "type": "commonjs",
+  "private": true,
   "version": "1.0.0",
-  "description": "Backend for the NASA Space Directory",
+  "description": "Backend for the NASA Space Gallery",
   "main": "./server/server.js",
   "scripts": {
     "server": "node server/server.js",

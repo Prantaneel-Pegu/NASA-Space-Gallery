@@ -14,11 +14,21 @@
     width: 1.1em;
     height: 1.1em;
     fill: var(--text-color);
+    transition: fill .4s;
+}
+
+.cst-github-icon {
+    
 }
 
 .cst-github-icon:hover, .cst-sun-icon:hover, .cst-moon-icon:hover {
     cursor: pointer;
+    fill: var(--cst-icon-hover-color);
 }
+
+/* .cst-sun-icon:hover, .cst-moon-icon:hover {
+    cursor: pointer;
+} */
 
 .toggle-hidden{
     display: none;

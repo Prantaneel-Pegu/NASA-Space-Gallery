@@ -29,25 +29,27 @@ function AboutPage() {
           </div>
 
           <p id="adc-handle">
-            @Prantaneel Pegu
+            <a href="https://x.com/PrantaneelPegu" className="adc-handle-link">
+              @Prantaneel Pegu
+            </a>
           </p>
         </div>
 
         <div id="about-socials">
           <div id="about-socials-container">
-            <a href="#" className="about-social-link">
+            <a href="https://github.com/Prantaneel-Pegu" className="about-social-link">
               <GithubIcon classNames="about-social-icon" />
             </a>
 
-            <a href="#" className="about-social-link">
+            <a href="https://x.com/PrantaneelPegu" className="about-social-link">
               <TwitterIcon classNames="about-social-icon" />
             </a>
 
-            <a href="#" className="about-social-link">
+            <a href="https://www.linkedin.com/in/prantaneel-pegu/" className="about-social-link">
               <LinkedInIcon classNames="about-social-icon" />
             </a>
 
-            <a href="#" className="about-social-link">
+            <a href="https://profile.indeed.com/p/prantaneelp-jv4nj7f" className="about-social-link">
               <IndeedIcon classNames="about-social-icon" />
             </a>
           </div>

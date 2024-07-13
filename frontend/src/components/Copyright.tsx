@@ -21,7 +21,9 @@ function Copyright () {
                     <img src={FooterAvatarImg} alt="A picture of me" id="fdc-avatar" />
                 </div>
                 <p id="footer-developer-handle">
-                    @Prantaneel Pegu
+                    <a href="https://x.com/PrantaneelPegu" className="footer-dev-handle-link">
+                        @Prantaneel Pegu
+                    </a>
                 </p>
             </div>
 
@@ -48,20 +50,19 @@ function Copyright () {
             <div id="footer-socials">
                 <p id="footer-socials-head">Follow me:</p>
                 <div id="footer-socials-container">
-                    <a href="" className="footer-social-link">
-                        {/* <img src={GithubIcon} alt="Github Icon" className="fsl-icon" /> */}
+                    <a href="https://github.com/Prantaneel-Pegu" className="footer-social-link">
                         <GithubIcon classNames="fsl-icon" />
                     </a>
 
-                    <a href="" className="footer-social-link">
+                    <a href="https://x.com/PrantaneelPegu" className="footer-social-link">
                         <TwitterIcon classNames="fsl-icon" />
                     </a>
 
-                    <a href="" className="footer-social-link">
+                    <a href="https://www.linkedin.com/in/prantaneel-pegu/" className="footer-social-link">
                         <LinkedInIcon classNames="fsl-icon" />
                     </a>
 
-                    <a href="" className="footer-social-link">
+                    <a href="https://profile.indeed.com/p/prantaneelp-jv4nj7f" className="footer-social-link">
                         <IndeedIcon classNames="fsl-icon" />
                     </a>
                 </div>

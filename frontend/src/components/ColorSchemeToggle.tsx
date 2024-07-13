@@ -32,7 +32,9 @@ function ColorSchemeToggle () {
         <div className="ColorSchemeToggle">
             <SunIcon classNames='cst-sun-icon icon toggle-light' onClick={disableDarkMode} />
             <MoonIcon classNames='cst-moon-icon icon toggle-dark toggle-hidden' onClick={enableDarkMode} />
-            <GithubIcon classNames='cst-github-icon icon'/>
+            <a href="https://github.com/Prantaneel-Pegu" className="cst-github-link">
+                <GithubIcon classNames='cst-github-icon icon'/>
+            </a>
         </div>
     )
 }

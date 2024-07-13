@@ -44,10 +44,15 @@
     padding-left: .65em;
     font-size: 1rem;
     font-weight: 400;
+}
+
+.adc-handle-link {
+    color: var(--text-color);
+    text-decoration: none;
     transition: color .4s;
 }
 
-#adc-handle:hover {
+.adc-handle-link:hover {
     color: var(--accent-color);
     cursor: pointer;
 }
