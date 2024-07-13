@@ -21,7 +21,7 @@ const limiter = (0, express_rate_limit_1.rateLimit)({
     standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
-// app.set('trust proxy', 2 /* number of proxies between user and server */)
+app.set('trust proxy', 2 /* number of proxies between user and server */);
 app.use((0, cors_1.default)());
 app.use('/api', limiter);
 app.get('/ip', (request, response) => response.send(request.ip));
