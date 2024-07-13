@@ -15,16 +15,15 @@ const app = (0, express_1.default)();
 const port = parseInt(process.env.PORT || '3001') || 3001;
 const appDir = path_1.default.resolve(__dirname, `../dist`);
 const errorPage = path_1.default.resolve(__dirname, `../dist/errorpage.html`);
+app.set('trust proxy', 1 /* number of proxies between user and server */);
 const limiter = (0, express_rate_limit_1.rateLimit)({
-    windowMs: 15 * 60 * 1000, // 1 minute
-    limit: 15, // Limit each IP to 100 requests per `window` (here, per 1 minute)
+    windowMs: 1 * 60 * 1000, // 1 minute
+    limit: 200, // Limit each IP to 200 requests per `window` (here, per 1 minute)
     standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
-app.set('trust proxy', 1 /* number of proxies between user and server */);
 app.use((0, cors_1.default)());
 app.use('/api', limiter);
-app.get('/ip', (request, response) => response.send(request.ip));
 app.get('/api/images/search', (req, res) => {
     const reqUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     console.log("\x1b[36m", "[server]", "\x1b[0m", ": Received request: ", reqUrl);

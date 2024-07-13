@@ -15,19 +15,16 @@ const port: number = parseInt(process.env.PORT || '3001') || 3001;
 const appDir = path.resolve(__dirname, `../dist`);
 const errorPage = path.resolve(__dirname, `../dist/errorpage.html`);
 
+app.set('trust proxy', 1 /* number of proxies between user and server */);
 const limiter = rateLimit({
-	windowMs: 15 * 60 * 1000, // 1 minute
-	limit: 15, // Limit each IP to 100 requests per `window` (here, per 1 minute)
+	windowMs: 1 * 60 * 1000, // 1 minute
+	limit: 200, // Limit each IP to 200 requests per `window` (here, per 1 minute)
 	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
 	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
 
-app.set('trust proxy', 1 /* number of proxies between user and server */)
 app.use(cors());	
 app.use('/api', limiter);
-
-app.get('/ip', (request, response) => response.send(request.ip))
-
 
 app.get('/api/images/search', (req, res) => {
 	const reqUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
