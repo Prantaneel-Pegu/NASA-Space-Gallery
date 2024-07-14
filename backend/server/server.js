@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const express_rate_limit_1 = require("express-rate-limit");
 const dotenv_1 = __importDefault(require("dotenv"));
-const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
 const dateformat_1 = __importDefault(require("dateformat"));
 const comms_js_1 = require("./comms.js");
@@ -22,7 +21,6 @@ const limiter = (0, express_rate_limit_1.rateLimit)({
     standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
-app.use((0, cors_1.default)());
 app.use('/api', limiter);
 app.get('/api/images/search', (req, res) => {
     const reqUrl = req.protocol + '://' + req.get('host') + req.originalUrl;

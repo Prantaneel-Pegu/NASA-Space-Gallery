@@ -1,7 +1,6 @@
 import express, { Express } from 'express';
 import { rateLimit } from 'express-rate-limit';
 import dotenv from 'dotenv';
-import cors from 'cors';
 import path from 'path';
 import dateformat from 'dateformat';
 
@@ -23,7 +22,6 @@ const limiter = rateLimit({
 	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
 
-app.use(cors());	
 app.use('/api', limiter);
 
 app.get('/api/images/search', (req, res) => {
