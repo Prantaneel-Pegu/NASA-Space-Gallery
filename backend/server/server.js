@@ -12,6 +12,8 @@ const comms_js_1 = require("./comms.js");
 dotenv_1.default.config({ path: "../" });
 const app = (0, express_1.default)();
 const port = parseInt(process.env.PORT || '3001') || 3001;
+// '/' must be at the last because it catches every path. Similarly '/gallery/*' must be before '/gallery'.
+const appPaths = ['/gallery/*', '/gallery', '/potd', '/coordinate-imagery', '/mars-gallery', '/api-docs', '/about', '/error', '/'];
 const appDir = path_1.default.resolve(__dirname, `../dist`);
 const errorPage = path_1.default.resolve(__dirname, `../dist/errorpage.html`);
 app.set('trust proxy', 1 /* number of proxies between user and server */);
@@ -142,12 +144,7 @@ app.get('/api', (req, res) => {
         message: "Welcome! This is the API address. Take a look at the API docs for info on usage."
     });
 });
-app.use('/', express_1.default.static(appDir));
-// app.get('/', (req, res) => {
-// 	const reqUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-// 	console.log("\x1b[36m", "[server]", "\x1b[0m", ": Received request: ", reqUrl);
-//     res.sendFile(path.resolve('dist/index.html'));
-// })
+app.use(appPaths, express_1.default.static(appDir));
 app.get('*', (req, res) => {
     const reqUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     console.log("\x1b[36m", "[server]", "\x1b[0m", ": Received request: ", reqUrl);

@@ -11,6 +11,8 @@ dotenv.config({ path: "../" });
 const app: Express = express();
 const port: number = parseInt(process.env.PORT || '3001') || 3001;
 
+// '/' must be at the last because it catches every path. Similarly '/gallery/*' must be before '/gallery'.
+const appPaths = ['/gallery/*', '/gallery', '/potd', '/coordinate-imagery', '/mars-gallery', '/api-docs', '/about', '/error', '/'];
 const appDir = path.resolve(__dirname, `../dist`);
 const errorPage = path.resolve(__dirname, `../dist/errorpage.html`);
 
@@ -162,13 +164,7 @@ app.get('/api', (req, res) => {
 	});
 });
 
-app.use('/', express.static(appDir));
-// app.get('/', (req, res) => {
-// 	const reqUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-// 	console.log("\x1b[36m", "[server]", "\x1b[0m", ": Received request: ", reqUrl);
-
-//     res.sendFile(path.resolve('dist/index.html'));
-// })
+app.use(appPaths, express.static(appDir));
 
 app.get('*', (req, res) => {
 	const reqUrl = req.protocol + '://' + req.get('host') + req.originalUrl;

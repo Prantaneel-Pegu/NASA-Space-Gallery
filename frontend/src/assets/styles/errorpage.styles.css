@@ -21,39 +21,77 @@
 html{
     scroll-behavior: smooth;
     color-scheme: dark;
+    height: 100%;
 }
 
 body{
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: var(--body-bgcolor);
     font-family: Inter, Poppins, sans-serif;
     font-size: var(--fsz1);
     color: var(--text-color);
+    height: 100%;
 }
 
-p {
-    font-size: 1.15rem;
+hr{
+    border: 0;
+    margin: 1em 0 0 0;
 }
 
 
 /* Specialized Selectors */
 
-#error-info {
-    margin: 10em 4em 0;
+#router-error {
+    font-size: 1rem;
+    margin-top: 10em;
+    text-align: center;
+    width: 100%;
 }
 
-#error-heading {
-    color: var(--accent-color);
+#router-error-code {
+    font-size: 2.75rem;
     font-weight: 800;
-    font-size: 2rem;
+    font-style: italic;
+    color: var(--accent-color);
 }
 
-#error-desc {
-    margin: 2em 0 .5em;
-    font-size: 1.15rem;
+#router-error-divider {
+    border: 3px solid black;
 }
 
-#error-emoji {
-    font-size: 1.5rem;
+#router-error-heading {
+    margin: 1.25em 0 1em 0;
+    font-size: 1.75rem;
+    color: var(--primary-color);
+}
+
+#router-error-desc {
+    padding: 0 2em;
+    font-size: 1rem;
+}
+
+#router-error a{
+    color: var(--accent-color);
+}
+
+
+@media screen and (min-width: 850px) {
+    
+    #router-error-code {
+        font-size: 2.9rem;
+    }
+
+    #router-error-divider {
+        border: 3.5px solid black;
+    }
+
+    #router-error-heading {
+        font-size: 1.9rem;
+    }
+
+    #router-error-desc {
+        font-size: 1.15rem;
+    }
 }
