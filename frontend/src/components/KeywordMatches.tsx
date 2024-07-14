@@ -19,9 +19,9 @@ function KeywordMatches ({ keywords, exclude }: Props) {
     const [keywordResults, setKeywordResults] = useState<JSX.Element[]>([]);
     const [loaded, setLoaded] = useState(false);
     const loadedCounter = useRef(0);
-    
     const keywordsStr = keywords.join();
     const excludeJSON = JSON.stringify(exclude);
+
     const getKMFromServer = useCallback<() => void>(() => {
         console.warn("IN CALLBACK", serverResponse);
         
@@ -113,7 +113,7 @@ function KeywordMatches ({ keywords, exclude }: Props) {
         
         const resultTiles: JSX.Element[] = [];
 
-        for (let i = 0; i < Math.min(serverResponse.numberOfResults, numberToLoad + loadedCounter.current); i++) {
+        for (let i = 0; i < Math.min(serverResponse.imageLink.length, numberToLoad + loadedCounter.current); i++) {
             const imageLink = serverResponse.imageLink[i];
             const id = serverResponse.id[i];
             const title = serverResponse.title[i] ;
@@ -171,11 +171,11 @@ function KeywordMatches ({ keywords, exclude }: Props) {
                         <div className="keyword-matches-grid">
                             <InfiniteScroll 
                                 next={debouncedLoadMoreMatches} 
-                                hasMore={(serverResponse.numberOfResults - exclude.length !== keywordResults.length) && serverResponse.error === ""} 
+                                hasMore={(serverResponse.imageLink.length - exclude.length !== keywordResults.length) && serverResponse.error === ""} 
                                 children={
                                     serverResponse.error === "" ? 
                                     <ResponsiveMasonry columnsCountBreakPoints={{320: 1, 550: 2, 900: 3, 1200: 4}}>
-                                        <Masonry gutter='1em'>
+                                        <Masonry gutter='2em'>
                                             {keywordResults}
                                         </Masonry>
                                     </ResponsiveMasonry> : keywordResults

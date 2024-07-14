@@ -1,6 +1,6 @@
 import './styles/GalleryImage.css';
 import { useParams } from "react-router-dom";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import LazyLoad from 'react-lazy-load';
 import { getImage, getImagePrototype } from '../services/communication';
 import KeywordMatches from './KeywordMatches';
@@ -10,6 +10,7 @@ type galleryParams = { id: string };
 function GalleryImage () {
     const [imageData, setImageData] = useState(getImagePrototype);
     const [loaded, setLoaded] = useState(false);
+    const scrollPosition = useRef(0);
     const params = useParams<galleryParams>();
     const oldParams = useRef<galleryParams>({id: params.id || ""});
     const imageId = params.id;
@@ -17,10 +18,15 @@ function GalleryImage () {
     // Scroll to top
     window.scrollTo(0, 0);
 
+    useLayoutEffect(() => {
+        scrollTo(0, scrollPosition.current);
+    })
+
     useEffect(() => {
         if (imageId) {
             getImage(imageId)
-                .then((response) => {
+                .then(response => {
+                    scrollPosition.current = Math.round(window.scrollY);
                     oldParams.current.id = imageId;
                     setImageData({...response})
                     setLoaded(true);

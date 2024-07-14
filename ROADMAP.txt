@@ -1,8 +1,9 @@
 ISSUES AT HAND / KNOWN ISSUES:
-    1/ Error page is not optimised for pc.
+    gallery input
+    gallery stutter input
+    remove console log
 
 END TASKS:
-    1/ Clean code & use proper html elements
     4/ Generate and study chrome lighthouse report
     6/ Write blog about my experience while creating this project
 

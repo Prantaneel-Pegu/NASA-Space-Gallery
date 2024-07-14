@@ -20,7 +20,7 @@ function CoordinateImagery () {
     const [imgLoadStartTime, setImgLoadStartTime] = useState(0);
     const [imgLoadEndTime, setImgLoadEndTime] = useState(0);
     const [imgTimedOut, setImageTimedOut] = useState(false);
-    const imageTimeout = 14000;
+    const imageTimeout = 15000;
     const imageWidth = 400;
     const imageHeight = 400;
 

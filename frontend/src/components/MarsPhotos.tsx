@@ -206,7 +206,7 @@ function MarsPhotos () {
                                 children={
                                     rawServerResponse.error === "" ? 
                                     <ResponsiveMasonry columnsCountBreakPoints={{320: 1, 550: 2, 900: 3, 1200: 4}}>
-                                        <Masonry gutter='1em'>
+                                        <Masonry gutter='2em'>
                                             {photosResponse}
                                         </Masonry>
                                     </ResponsiveMasonry> : photosResponse

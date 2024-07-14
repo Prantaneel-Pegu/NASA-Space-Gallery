@@ -9,10 +9,6 @@
     font-weight: 500;
 }
 
-#KeywordMatches .LazyLoad{
-    margin: .75em;
-}
-
 #KeywordMatches .infinite-scroll-component {
     overflow: visible !important;
 }

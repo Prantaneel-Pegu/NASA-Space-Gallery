@@ -27,10 +27,6 @@
     font-style: normal;
 }
 
-#gallery-image-grid .LazyLoad {
-    margin: .75em;
-}
-
 .gallery-image-tile{
     display: inline-block;
     width: 100%;

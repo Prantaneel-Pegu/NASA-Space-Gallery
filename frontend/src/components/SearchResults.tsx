@@ -42,7 +42,6 @@ function SearchResults (props: SearchResultsProps) {
     }, [searchResult, searchQuery.query, newSubmitEvent])
 
     useEffect(() => {
-
         // If useEffect reruns unnecessarily, return
         if (!newSubmitEvent) return;
         
@@ -232,7 +231,7 @@ function SearchResults (props: SearchResultsProps) {
                     children={
                         searchResult.error === "" ? 
                         <ResponsiveMasonry columnsCountBreakPoints={{320: 1, 550: 2, 900: 3, 1200: 4}}>
-                            <Masonry gutter='1em'>
+                            <Masonry gutter='2em'>
                                 {searchResult.results}
                             </Masonry>
                         </ResponsiveMasonry> : searchResult.results

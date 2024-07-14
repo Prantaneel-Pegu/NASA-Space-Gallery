@@ -117,14 +117,14 @@ function Gallery () {
                     children={
                         (galleryImages.error === "") ? 
                         <ResponsiveMasonry columnsCountBreakPoints={{320: 1, 550: 2, 900: 3, 1200: 4}}>
-                            <Masonry gutter='1em'>
+                            <Masonry gutter='2em'>
                                 {galleryImages.results}
                             </Masonry>
                         </ResponsiveMasonry> 
                         : 
                         <>
                             <ResponsiveMasonry columnsCountBreakPoints={{320: 1, 550: 2, 900: 3, 1200: 4}}>
-                                <Masonry gutter='1em'>
+                                <Masonry gutter='2em'>
                                     {galleryImages.results}
                                 </Masonry>
                             </ResponsiveMasonry>

@@ -3,6 +3,7 @@
 }
 
 #top-matches{
+    margin-top: 2em;
     word-wrap: break-word;
     margin-bottom: 1em;
 }
@@ -50,12 +51,14 @@
 
 @media screen and (min-width: 750px) {
     #top-matches{
-        margin-bottom: 2.5em;
+        font-size: 1.15rem;
+        margin-bottom: 2.25em;
     }
 }
 
 @media screen and (min-width: 1135px) {
     #top-matches{
-        margin-bottom: 3em;
+        font-size: 1.25rem;
+        margin-bottom: 2.5em;
     }
 }

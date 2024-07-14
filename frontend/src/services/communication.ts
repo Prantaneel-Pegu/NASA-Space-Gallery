@@ -4,7 +4,7 @@ const nasaImagesUrl = `/api/images/search`;
 const potdUrl = `/api/potd`;
 const roverPhotosUrl = `/api/roverphotos/search`;
 
-const requestTimeout = 14000; 
+const requestTimeout = 15000; 
 
 async function getImages (query: string, index: number) : Promise<GetImageResults> {
     const imageLink: string[] = [];
