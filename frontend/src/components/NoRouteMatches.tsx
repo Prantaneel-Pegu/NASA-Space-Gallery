@@ -21,7 +21,7 @@ function NoRouteMatches () {
                 This page doesn't exist.
                 <br />
                 <br />
-                But don't worry. Here's a cool picture of <Link to={"/gallery/PIA04921"}>Andromeda</Link>.
+                But don't worry. Here's a cool picture of a <Link to={"/gallery/PIA09178"}>nebula</Link>.
             </p>
         </div>
     );

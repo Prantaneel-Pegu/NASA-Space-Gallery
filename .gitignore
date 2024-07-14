@@ -10,6 +10,7 @@ lerna-debug.log*
 # Misc
 node_modules
 *.local
+ROADMAP.txt
 
 # Secrets
 .env

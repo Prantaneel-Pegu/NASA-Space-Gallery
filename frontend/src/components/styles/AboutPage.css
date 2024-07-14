@@ -16,6 +16,16 @@
     margin: 1em 0;
 }
 
+.about-api-list {
+    list-style: square;
+    margin: 1em 0;
+    margin-left: 1.5em;
+}
+
+.about-api-item {
+    font-size: 1rem;
+}
+
 .project-tech {
     color: var(--project-tech-text);
 }
@@ -95,7 +105,11 @@
         font-weight: 600;
     }
 
-    .project-desc, #welcome-text {
+    .about-api-list {
+        margin-left: 1.75em;
+    }
+
+    .project-desc, #welcome-text, .about-api-item {
         font-size: 1.1rem;
     }
 
