@@ -20,7 +20,9 @@ type SearchResultsProps = {
     searchResult: SearchResult,
     setSearchResult: Dispatch<SetStateAction<GetImageResults>>,
     newSubmitEvent: boolean,
-    setNewSubmitEvent: Dispatch<SetStateAction<boolean>>
+    setNewSubmitEvent: Dispatch<SetStateAction<boolean>>,
+    clickBackEvent: boolean,
+    setClickBackEvent: Dispatch<SetStateAction<boolean>>,
 }
 
 function SearchResults (props: SearchResultsProps) {    
@@ -33,17 +35,20 @@ function SearchResults (props: SearchResultsProps) {
     const newSubmitEvent = props.newSubmitEvent;
     const setNewSubmitEvent = props.setNewSubmitEvent;
     const [numberOfResults, setNumberOfResults] = useState(0);
+    const clickBackEvent = props.clickBackEvent;
+    const setClickBackEvent = props.setClickBackEvent;
     const loadedCounter = useRef(0);
     const scrollPosition = useRef(0);
 
     useLayoutEffect(() => {
-        if (newSubmitEvent) scrollPosition.current = 0;
+        if (newSubmitEvent || clickBackEvent) scrollPosition.current = 0;
         scrollTo(0, scrollPosition.current);
-    }, [searchResult, searchQuery.query, newSubmitEvent])
+    }, [searchResult, searchQuery.query, newSubmitEvent, clickBackEvent])
 
     useEffect(() => {
+
         // If useEffect reruns unnecessarily, return
-        if (!newSubmitEvent) return;
+        if (!newSubmitEvent) return;  
         
         // If query is empty, return from useeffect.
         if (!searchQuery.query.toString().trim()) return;
@@ -111,6 +116,7 @@ function SearchResults (props: SearchResultsProps) {
             newSearchResult.results = resultTiles;
 
             setNewSubmitEvent(false);
+            setClickBackEvent(false);
             if (!isEqual(newSearchResult, searchResult)) {
                 setSearchResult(newSearchResult);
                 lastSearchResult.current = cloneDeep(newSearchResult);
@@ -136,7 +142,7 @@ function SearchResults (props: SearchResultsProps) {
                 console.log(`Encountered ${error.name}.`);
             }
         })
-    }, [searchQuery.query, setSearchResult, searchResult, newSubmitEvent, setNewSubmitEvent])
+    }, [searchQuery.query, setSearchResult, searchResult, newSubmitEvent, setNewSubmitEvent, clickBackEvent, setClickBackEvent])
 
     function loadMoreImages(numberOfImages = 20) { 
         console.log("TRIGGERED!", loadedCounter.current + numberOfImages, scrollPosition.current);
@@ -212,6 +218,12 @@ function SearchResults (props: SearchResultsProps) {
                 }
             })
     }
+
+    useEffect(() => {
+        loadMoreImages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [clickBackEvent])
+
     console.log(searchResult);
 
     // If query is empty, return null
@@ -227,7 +239,7 @@ function SearchResults (props: SearchResultsProps) {
             <div className="results-grid">
                 <InfiniteScroll 
                     next={loadMoreImages} 
-                    hasMore={(searchResult.numberOfResults !== searchResult.imageLink.length) && searchResult.error === ""} 
+                    hasMore={(searchResult.numberOfResults !== searchResult.imageLink.length) && searchResult.error === "" || newSubmitEvent || clickBackEvent }    
                     children={
                         searchResult.error === "" ? 
                         <ResponsiveMasonry columnsCountBreakPoints={{320: 1, 550: 2, 900: 3, 1200: 4}}>
@@ -236,10 +248,9 @@ function SearchResults (props: SearchResultsProps) {
                             </Masonry>
                         </ResponsiveMasonry> : searchResult.results
                     } 
-                    loader={<div className="loader"></div>} 
+                    loader={<div className="loader"></div>}     
                     dataLength={searchResult.imageLink.length}
-                    scrollThreshold={0.9}
-                    scrollableTarget="GalleryImage">
+                    scrollThreshold={0.9}>
                 </InfiniteScroll>
             </div>    
         </div>

@@ -1,5 +1,5 @@
 import './styles/SearchComponent.css'
-import { Dispatch, SetStateAction} from 'react';
+import { Dispatch, SetStateAction, useState} from 'react';
 import { GetImageResults } from '../services/communication';
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
@@ -16,7 +16,9 @@ type SearchComponentProps = {
     searchResult: SearchResult,
     setSearchResult: Dispatch<SetStateAction<GetImageResults>>,
     newSubmitEvent: boolean,
-    setNewSubmitEvent: Dispatch<SetStateAction<boolean>>
+    setNewSubmitEvent: Dispatch<SetStateAction<boolean>>,
+    searchBoxValue: string,
+    setSearchBoxValue: Dispatch<SetStateAction<string>>,
 }
 
 function SearchComponent (props: SearchComponentProps) {
@@ -26,11 +28,14 @@ function SearchComponent (props: SearchComponentProps) {
     const setSearchResult = props.setSearchResult;
     const newSubmitEvent = props.newSubmitEvent;
     const setNewSubmitEvent = props.setNewSubmitEvent;
+    const searchBoxValue = props.searchBoxValue;
+    const setSearchBoxValue= props.setSearchBoxValue;
+    const [clickBackEvent, setClickBackEvent] = useState(false);
 
     return (
         <div id="SearchComponent">
-            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} newSubmitEvent={newSubmitEvent} setNewSubmitEvent={setNewSubmitEvent} />
-            <SearchResults searchQuery={searchQuery} setSearchQuery={setSearchQuery} searchResult={searchResult} setSearchResult={setSearchResult} newSubmitEvent={newSubmitEvent} setNewSubmitEvent={setNewSubmitEvent} />
+            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} newSubmitEvent={newSubmitEvent} setNewSubmitEvent={setNewSubmitEvent} searchResult={searchResult} searchBoxValue={searchBoxValue} setSearchBoxValue={setSearchBoxValue} clickBackEvent={clickBackEvent} setClickBackEvent={setClickBackEvent} />
+            <SearchResults searchQuery={searchQuery} setSearchQuery={setSearchQuery} searchResult={searchResult} setSearchResult={setSearchResult} newSubmitEvent={newSubmitEvent} setNewSubmitEvent={setNewSubmitEvent} clickBackEvent={clickBackEvent} setClickBackEvent={setClickBackEvent} />
         </div>
     )
 }

@@ -19,7 +19,7 @@ function KeywordMatches ({ keywords, exclude }: Props) {
     const [keywordResults, setKeywordResults] = useState<JSX.Element[]>([]);
     const [loaded, setLoaded] = useState(false);
     const loadedCounter = useRef(0);
-    const keywordsStr = keywords.join();
+    const keywordsStr = keywords?.join() || "";
     const excludeJSON = JSON.stringify(exclude);
 
     const getKMFromServer = useCallback<() => void>(() => {

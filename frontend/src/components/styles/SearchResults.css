@@ -26,6 +26,7 @@
 .results-image{
     width: 100%;
     min-height: 120px;
+    border-radius: .5em;
 }
 
 .results-description{

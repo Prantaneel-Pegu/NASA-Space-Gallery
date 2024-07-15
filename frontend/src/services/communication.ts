@@ -29,9 +29,7 @@ async function getImages (query: string, index: number) : Promise<GetImageResult
         
         console.log(query, index);
 
-        for(let i = 0; i < Math.min(numberOfResults, index || 20); i++) {  
-    
-            console.log(`${nasaImagesUrl}?q=${query}&page_size=${index ? index : 20}`);            
+        for(let i = 0; i < Math.min(numberOfResults, index || 20); i++) {        
             imageLink.push(imageData.items[i].links[0]?.href);
             id.push(imageData.items[i].data[0]?.["nasa_id"]);
             title.push(imageData.items[i].data[0].title)

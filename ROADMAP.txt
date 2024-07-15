@@ -1,9 +1,6 @@
 ISSUES AT HAND / KNOWN ISSUES:
-    gallery input
-    gallery stutter input
     remove console log
+    keywordMatches network error slow; console says canceled error; manage canceled error maybe by adding error as separate element (actually must to do)
 
-END TASKS:
-    4/ Generate and study chrome lighthouse report
-    6/ Write blog about my experience while creating this project
-
+END / FINAL :
+    last tests, on desktop and mobile.

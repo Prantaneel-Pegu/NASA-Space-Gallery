@@ -96,6 +96,7 @@
 .mp-photo-tile-img {
     width: 100%;
     min-height: 120px; 
+    border-radius: .5em;
 }
 
 #MarsPhotos .loader {

@@ -2,7 +2,6 @@ import NavBar from './NavBar';
 import Copyright from './Copyright';
 import { Outlet } from "react-router-dom";
 
-
 type Props = {
     errorElement?: React.JSX.Element
 }

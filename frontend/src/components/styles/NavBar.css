@@ -43,7 +43,7 @@
 
 /* Media Queries */
 
-@media screen and (min-width: 935px) {
+@media screen and (min-width: 975px) {
 
     :root {
         --navbar-height: 1.75em !important;

@@ -7,6 +7,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import SearchResultsImage from './SearchResultsImage';
 import isEqual from 'lodash.isequal';
+import cloneDeep from 'lodash.clonedeep';
 
 function Gallery () {
     const [searchParams] = useSearchParams();
@@ -14,11 +15,13 @@ function Gallery () {
     const [searchResult, setSearchResult] = useState(getImagesPrototype);
     const [newSubmitEvent, setNewSubmitEvent] = useState(false);
     const [galleryImages, setGalleryImages] = useState({...getImagesPrototype, errorElement: <></>});
+    const lastServerResponse = useRef({...getImagesPrototype, errorElement: <></>});
     const imagesLoaded = useRef(0);
     const galleryImageQuery = useRef('andromeda');
     const initialLoad = useRef(true);
+    const initialLoaded = useRef(false);
     const scrollPosition = useRef(0);
-    const searchBox = document.querySelector<HTMLInputElement>("search-box");
+    const [searchBoxValue, setSearchBoxValue] = useState("")
 
     // Scroll to top
     window.scrollTo(0,0);
@@ -29,18 +32,24 @@ function Gallery () {
     }, [newSubmitEvent, galleryImages])
 
     function loadGalleryImages(numberToLoad = 20) {
-        console.log("Loading Gallery Images", imagesLoaded.current + numberToLoad);
+        console.log("Loading Gallery Images", imagesLoaded.current + numberToLoad, galleryImages);
+        initialLoad.current = false;
         getImages(galleryImageQuery.current, imagesLoaded.current + numberToLoad)
             .then(rawServerResponse => {
+                initialLoaded.current = true;
                 const serverResponse: GetImageResults & {errorElement: JSX.Element} = {...rawServerResponse, errorElement: <></>}
+
                 console.log("Loaded gallery images", serverResponse);
 
                 scrollPosition.current = Math.round(window.scrollY);
-                initialLoad.current = false;
-                setGalleryImages(serverResponse);
+                  
+                if (!isEqual(serverResponse, lastServerResponse.current)) {
+                    setGalleryImages(serverResponse);
+                    lastServerResponse.current = cloneDeep(serverResponse);
+                }
 
                 const resultTiles = [];
-
+                // If error multiple rerender?
                 if (serverResponse.error !== "") {
                     resultTiles.push(...galleryImages.results);
                     const errorElement = <div id="gallery-error">
@@ -59,11 +68,8 @@ function Gallery () {
                     const id = serverResponse.id[i];
                     const title = serverResponse.title[i];
                     const description = serverResponse.description[i];
-                    // const descriptionLength = 70;
                                      
                     if (imageLink && id && title && description) {        
-                        // const descriptionShort = description.length > descriptionLength ? description.substring(0, descriptionLength - 3) + "..." : description;
-            
                         resultTiles.push(
                                             <Link key={id} to={`/gallery/${id}`} className="gallery-image-link">
                                                 <article className="gallery-image-tile">                                        
@@ -73,15 +79,18 @@ function Gallery () {
                                         )               
                     }
                 }
-                console.log(scrollPosition.current, Math.round(window.scrollY));
-                
+                   
                 imagesLoaded.current += numberToLoad;     
 
                 const newGalleryImages: GetImageResults = {...rawServerResponse, results: resultTiles}
-                if (!isEqual(galleryImages, newGalleryImages))
+
+                console.log(!isEqual(galleryImages, newGalleryImages), galleryImages, newGalleryImages);
+                
+                if (!isEqual(galleryImages, newGalleryImages)) { 
                     setGalleryImages({...newGalleryImages, errorElement: <></>});
-                    console.log("New Gallery Images: ", newGalleryImages, resultTiles);
-            });
+                    console.log("New Gallery Images: ", {...newGalleryImages, errorElement: <></>}, resultTiles);
+                }
+            }); 
     }
 
     if (initialLoad.current) loadGalleryImages();
@@ -92,28 +101,24 @@ function Gallery () {
     } else if (searchParams.get('search') === null && searchQuery.query !== "") {
         setSearchQuery({ query: "" });
     }
-
-    if (searchParams.get('search') === null && searchBox) {
-        searchBox.value = "";
-    }
+    console.log(searchQuery.query.trim() !== "");
+    
 
     if (searchQuery.query.trim() !== "") {
         return (
             <div id="Gallery">
-                <SearchComponent searchQuery={searchQuery} setSearchQuery={setSearchQuery} searchResult={searchResult} setSearchResult={setSearchResult} newSubmitEvent={newSubmitEvent} setNewSubmitEvent={setNewSubmitEvent} />
+                <SearchComponent searchQuery={searchQuery} setSearchQuery={setSearchQuery} searchResult={searchResult} setSearchResult={setSearchResult} newSubmitEvent={newSubmitEvent} setNewSubmitEvent={setNewSubmitEvent} searchBoxValue={searchBoxValue} setSearchBoxValue={setSearchBoxValue} />
             </div>
         )
     }
     
-    console.log(galleryImages.numberOfResults, galleryImages.results.length);
-    
     return (
         <div id="Gallery">
-            <SearchComponent searchQuery={searchQuery} setSearchQuery={setSearchQuery} searchResult={searchResult} setSearchResult={setSearchResult} newSubmitEvent={newSubmitEvent} setNewSubmitEvent={setNewSubmitEvent} />
+            <SearchComponent searchQuery={searchQuery} setSearchQuery={setSearchQuery} searchResult={searchResult} setSearchResult={setSearchResult} newSubmitEvent={newSubmitEvent} setNewSubmitEvent={setNewSubmitEvent} searchBoxValue={searchBoxValue} setSearchBoxValue={setSearchBoxValue} />
             <div id="gallery-image-grid">
                 <InfiniteScroll 
                     next={loadGalleryImages} 
-                    hasMore={((galleryImages.numberOfResults !== galleryImages.results.length) && galleryImages.error === "") || initialLoad.current} 
+                    hasMore={((galleryImages.numberOfResults !== galleryImages.results.length) && galleryImages.error === "") || !initialLoaded.current} 
                     children={
                         (galleryImages.error === "") ? 
                         <ResponsiveMasonry columnsCountBreakPoints={{320: 1, 550: 2, 900: 3, 1200: 4}}>
