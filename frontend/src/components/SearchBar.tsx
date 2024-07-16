@@ -30,7 +30,6 @@ function SearchBar (props: SearchBarProps) {
         // Updates searchBox text after new search or after user clicks back button
         const searchBox = document.querySelector<HTMLInputElement>("#search-box");
         searchBox!.value = searchBoxValue || searchParams.get('search') || searchQuery.query
-        console.log(searchResult.results.length);
         if (searchResult.results.length === 0) setClickBackEvent(true);
     })
 

@@ -141,7 +141,7 @@ async function getImage(imageId: string) : Promise<GetImageResult> {
     } 
 }
 
-async function getKeywordsMatches(keywords: string) : Promise<getKeywordsResults> {
+async function getKeywordsMatches(keywords: string, index: number) : Promise<getKeywordsResults> {
     const imageLink: string[] = [];
     const imageBlurHash: string[] = [];
     const id: string[] = [];
@@ -152,7 +152,7 @@ async function getKeywordsMatches(keywords: string) : Promise<getKeywordsResults
 
     try {
         const response = await axios.get(
-            `${nasaImagesUrl}?keywords=${keywords}`,
+            `${nasaImagesUrl}?keywords=${keywords}&page_size=${index ? index : 20}`,
             { signal: AbortSignal.timeout(requestTimeout) }
         );
 
@@ -274,6 +274,8 @@ async function getRoverPhotos(request: GetRoverPhotosRequest, initialLoad: boole
     let error = "";
 
     console.log(`${roverPhotosUrl}?date=${date}`);
+
+    
     
     try {
         const response = await axios.get(`${roverPhotosUrl}?date=${date}`,

@@ -1,6 +1,4 @@
-ISSUES AT HAND / KNOWN ISSUES:
-    remove console log
-    keywordMatches network error slow; console says canceled error; manage canceled error maybe by adding error as separate element (actually must to do)
+
 
 END / FINAL :
-    last tests, on desktop and mobile.
+    last tests, on desktop and mobile. simple

@@ -54,8 +54,8 @@ app.get('/api/images/search', (req, res) => {
 				});
 		} else 
 
-		if (typeof keywords === 'string') {
-			getKeywordsMatches(keywords)
+		if (typeof keywords === 'string' && typeof page_size === 'string') {
+			getKeywordsMatches(keywords, page_size)
 				.then(serverResponse => {
 					res.json(serverResponse);
 					res.status(200).end();

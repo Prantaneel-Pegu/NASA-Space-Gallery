@@ -41,12 +41,11 @@ function SearchResults (props: SearchResultsProps) {
     const scrollPosition = useRef(0);
 
     useLayoutEffect(() => {
-        if (newSubmitEvent || clickBackEvent) scrollPosition.current = 0;
+        if (newSubmitEvent) scrollPosition.current = 0;
         scrollTo(0, scrollPosition.current);
     }, [searchResult, searchQuery.query, newSubmitEvent, clickBackEvent])
 
     useEffect(() => {
-
         // If useEffect reruns unnecessarily, return
         if (!newSubmitEvent) return;  
         
@@ -182,6 +181,7 @@ function SearchResults (props: SearchResultsProps) {
                     lastSearchResult.current = cloneDeep(newSearchResult);
                     console.error("ENCOUNTERED ERROR IN LOADMORE", {...searchResult, results: resultTiles, error: newSearchResult.error});               
                     return;
+                    
                 }
 
                 for (let i = 0; i < Math.min(newSearchResult.numberOfResults, newSearchResult.imageLink.length); i++) {
@@ -241,12 +241,11 @@ function SearchResults (props: SearchResultsProps) {
                     next={loadMoreImages} 
                     hasMore={(searchResult.numberOfResults !== searchResult.imageLink.length) && searchResult.error === "" || newSubmitEvent || clickBackEvent }    
                     children={
-                        searchResult.error === "" ? 
                         <ResponsiveMasonry columnsCountBreakPoints={{320: 1, 550: 2, 900: 3, 1200: 4}}>
                             <Masonry gutter='2em'>
                                 {searchResult.results}
                             </Masonry>
-                        </ResponsiveMasonry> : searchResult.results
+                        </ResponsiveMasonry> 
                     } 
                     loader={<div className="loader"></div>}     
                     dataLength={searchResult.imageLink.length}

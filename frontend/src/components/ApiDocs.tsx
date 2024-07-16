@@ -89,12 +89,12 @@ function ApiDocs () {
                             <h3 className="usage-types-head">Request by Keywords</h3>
                             <br />
                             <p className="usage-types-desc">
-                                The API can receive a 'keywords' parameter at '/api/images/search'. This parameter should contain all requested keywords in a comma separated string. On receiving such a request, the API will search for all images that match the given keywords and return them. Due to limitations, the response will only contain 1000 or fewer matches.
+                                The API can receive a 'keywords' parameter at '/api/images/search'. This parameter should contain all requested keywords in a comma separated string. Optionally, an additional 'page_size' parameter can be given. On receiving a request with the 'keywords' parameter set, the API will search for images that match the given keywords and return them. Default page size is 20.
                             </p>
                             <code className="usage-example-code">
                                 <p className="usage-example-head">Example query: </p>
-                                <a href="/api/images/search?keywords=galaxy" className="usage-example-code-link">
-                                    /api/images/search?keywords=galaxy
+                                <a href="/api/images/search?keywords=space,galaxy&page_size=30" className="usage-example-code-link">
+                                    /api/images/search?keywords=space,galaxy&page_size=30
                                 </a>
                             </code>
                         </article>

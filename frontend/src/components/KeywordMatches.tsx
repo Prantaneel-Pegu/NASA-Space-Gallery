@@ -7,7 +7,6 @@ import { getKeywordsMatches, getKeywordsPrototype, getKeywordsResults } from '..
 import SearchResultsImage from "./SearchResultsImage";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { useDebouncedCallback } from 'use-debounce';
 
 type Props = {
     keywords: string[],
@@ -23,11 +22,11 @@ function KeywordMatches ({ keywords, exclude }: Props) {
     const excludeJSON = JSON.stringify(exclude);
 
     const getKMFromServer = useCallback<() => void>(() => {
-        console.warn("IN CALLBACK", serverResponse);
+        console.log("IN CALLBACK", serverResponse);
         
         const idsToExclude = JSON.parse(excludeJSON);
 
-        getKeywordsMatches(keywordsStr)
+        getKeywordsMatches(keywordsStr, loadedCounter.current)
             .then(response => {
                 setServerResponse(response);
                 
@@ -37,14 +36,15 @@ function KeywordMatches ({ keywords, exclude }: Props) {
                 const resultTiles: JSX.Element[] = [];
 
                 if (newServerResponse.error !== "") {
-                    const errorElement = <div id="KeywordMatches">
+                    const errorElement = <div id="km-error-element" key="KM-ERROR-ELEMENT">
                                             <p id="km-error-info">
-                                                {newServerResponse.error.split('\n').map((subStr, id) => <p key={id}>{subStr}<br /></p>)}
+                                                {newServerResponse.error.split('\n').map((subStr, id) => <span key={id}>{subStr}<br /></span>)}
                                             </p>
                                          </div>
 
                     resultTiles.push(errorElement);
                     setKeywordResults([...resultTiles]);
+                    setLoaded(true);
                     console.error("ENCOUNTERED ERROR IN USEEFFECT", ...resultTiles);                    
                     return;
                 } 
@@ -103,82 +103,101 @@ function KeywordMatches ({ keywords, exclude }: Props) {
     }, [])
     
     useEffect(() => {  
-        console.warn("IN USEEFFECT");
+        console.log("IN USEEFFECT");
         getKMFromServer()
-        console.warn("EXITING USEEFFECT");
+        console.log("EXITING USEEFFECT");
     }, [getKMFromServer]);
 
     function loadMoreMatches(numberToLoad = 20) {
         console.log("IN LOAD MORE", serverResponse);
         
-        const resultTiles: JSX.Element[] = [];
+        getKeywordsMatches(keywordsStr, loadedCounter.current + numberToLoad)
+            .then(serverResponse => {
+                setServerResponse(serverResponse);
+                const resultTiles: JSX.Element[] = [];
 
-        for (let i = 0; i < Math.min(serverResponse.imageLink.length, numberToLoad + loadedCounter.current); i++) {
-            const imageLink = serverResponse.imageLink[i];
-            const id = serverResponse.id[i];
-            const title = serverResponse.title[i] ;
-            const description = serverResponse.description[i];
+                if (serverResponse.error !== "") {
+                    const errorElement = <div id="km-error-element" key="KM-ERROR-ELEMENT">
+                                            <p id="km-error-info">
+                                                {serverResponse.error.split('\n').map((subStr, id) => <span key={id}>{subStr}<br /></span>)}
+                                            </p>
+                                         </div>
 
-            const descriptionLength = 70;
-            const descriptionShort = description.length > descriptionLength ? description.substring(0, descriptionLength - 3) + "..." : description;
+                    resultTiles.push(...keywordResults);
+                    resultTiles.pop();
+                    resultTiles.push(errorElement);
+                    setKeywordResults([...resultTiles]);
+                    console.log(resultTiles);
+                    
+                    console.error("ENCOUNTERED ERROR IN USEEFFECT", resultTiles);                    
+                    return;
+                } 
 
-            if (![...exclude].includes(id)) {
-                resultTiles.push(
-                        <Link to={`/gallery/${id}`} className="keyword-matches-link" key={id}>
-                            <article className="keyword-matches-tile">
-                                <SearchResultsImage src={imageLink} alt={title} classes="keyword-matches-image" />
+                console.log(serverResponse.numberOfResults, numberToLoad + loadedCounter.current);
+
+                for (let i = 0; i < Math.min(serverResponse.numberOfResults, numberToLoad + loadedCounter.current); i++) {
+                    const imageLink = serverResponse.imageLink[i];
+                    const id = serverResponse.id[i];
+                    const title = serverResponse.title[i];
+                    const description = serverResponse.description[i];
+
+                    const descriptionLength = 70;
+                    const descriptionShort = description?.length > descriptionLength ? description.substring(0, descriptionLength - 3) + "..." : description;
+
+                    if (![...exclude].includes(id)) {
+                        resultTiles.push(
+                            <Link to={`/gallery/${id}`} className="keyword-matches-link" key={id}>
+                                <article className="keyword-matches-tile">
+                                    <SearchResultsImage src={imageLink} alt={title} classes="keyword-matches-image" />
                                     <p className="keyword-matches-description">
                                         {descriptionShort}
                                     </p>
-                            </article>
-                        </Link>
-                );
+                                </article>
+                            </Link>
+                        );
+                    }
+
+                }
+                loadedCounter.current += numberToLoad;
+
+                console.log(keywordResults, resultTiles, loadedCounter.current);
+
+                if (!isEqual(keywordResults, resultTiles)) {
+                    setKeywordResults(resultTiles);
+                    console.log(keywordResults, resultTiles);
+                }
             }
-        }
-
-        loadedCounter.current += numberToLoad;
-
-        console.log(keywordResults, resultTiles, loadedCounter.current);
-                
-        if (!isEqual(keywordResults, resultTiles)) {
-            setKeywordResults(resultTiles);
-            console.log(keywordResults, resultTiles);
-        }
-    }
-
-    const debouncedLoadMoreMatches = useDebouncedCallback((numberToLoad = 20) => loadMoreMatches(numberToLoad), 3000);
-
-    // Display errors, if any. Also split the error message if a "\n" character is encountered.
-    if (serverResponse.error !== "") {
-        return (
-            <div id="KeywordMatches">
-                <h2 id="error-info">
-                    {serverResponse.error.split('\n').map((subStr, id) => <p key={id}>{subStr}<br /></p>)}
-                </h2>
-            </div>
-        )
+            )
     }
 
     if (loaded) {
             return (
                 <>
                     <div id="KeywordMatches">
-                        {!serverResponse.error && 
+                        {(!serverResponse.error && (serverResponse.numberOfResults - exclude.length > keywordResults.length)) ?
                             <h3 id="keyword-matches-heading">
                                 See more pictures like this:
-                            </h3>
+                            </h3> : null
                         }
                         <div className="keyword-matches-grid">
                             <InfiniteScroll 
-                                next={debouncedLoadMoreMatches} 
-                                hasMore={(serverResponse.imageLink.length - exclude.length !== keywordResults.length) && serverResponse.error === ""} 
+                                next={loadMoreMatches} 
+                                hasMore={(serverResponse.numberOfResults - exclude.length > keywordResults.length) && serverResponse.error === ""} 
                                 children={
-                                    serverResponse.error === "" ? 
-                                    <ResponsiveMasonry columnsCountBreakPoints={{320: 1, 550: 2, 900: 3, 1200: 4}}>
-                                        <Masonry gutter='2em'>
-                                            {keywordResults}
-                                        </Masonry>
-                                    </ResponsiveMasonry> : keywordResults
+                                    serverResponse.error ?
+                                        (keywordResults.length === 1 ?
+                                            keywordResults :
+                                            <ResponsiveMasonry columnsCountBreakPoints={{ 320: 1, 550: 2, 900: 3, 1200: 4 }}>
+                                                <Masonry gutter='2em'>
+                                                    {keywordResults}
+                                                </Masonry>
+                                            </ResponsiveMasonry>) :
+
+                                            <ResponsiveMasonry columnsCountBreakPoints={{ 320: 1, 550: 2, 900: 3, 1200: 4 }}>
+                                                <Masonry gutter='2em'>
+                                                    {keywordResults}
+                                                </Masonry>
+                                            </ResponsiveMasonry>
                                     } 
                                 loader={<div className="loader"></div>} 
                                 dataLength={keywordResults.length}

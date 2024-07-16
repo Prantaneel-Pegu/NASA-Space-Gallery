@@ -44,9 +44,9 @@ async function getImage(imageId) {
     }
     return serverResponse;
 }
-async function getKeywordsMatches(keywords) {
+async function getKeywordsMatches(keywords, index) {
     let serverResponse = {};
-    const reqUrl = `${nasaImagesUrl}/search?keywords=${keywords}&media_type=image&page_size=1000`;
+    const reqUrl = `${nasaImagesUrl}/search?keywords=${keywords}&media_type=image&page_size=${index ? index : 20}`;
     try {
         serverResponse = (await axios_1.default.get(reqUrl, { signal: AbortSignal.timeout(requestTimeout) })).data;
     }

@@ -15,7 +15,6 @@ const PhotosRequestPrototype: PhotosRequest = {
 }
 
 function MarsPhotos () {
-
     const [photosRequest, setPhotosRequest] = useState(PhotosRequestPrototype);
     const [photosResponse, setPhotosResponse] = useState<JSX.Element[]>([]);
     const [rawServerResponse, setRawServerResponse] = useState(cloneDeep(getRoverPhotosPrototype));
@@ -155,6 +154,9 @@ function MarsPhotos () {
     }
 
     if (dateToday === "") setDateToday(getDateToday());
+
+    console.log(!!rawServerResponse.error, rawServerResponse.photoUrls.length !== photosResponse.length, photosResponse);
+    
     
     return (
         <div id="MarsPhotos">
@@ -202,14 +204,22 @@ function MarsPhotos () {
                             </p>}
                             <InfiniteScroll 
                                 next={loadMorePhotos} 
-                                hasMore={(rawServerResponse.photoUrls.length !== photosResponse.length) && rawServerResponse.error === ""} 
+                                hasMore={(rawServerResponse.photoUrls.length !== photosResponse.length) && !rawServerResponse.error} 
                                 children={
-                                    rawServerResponse.error === "" ? 
-                                    <ResponsiveMasonry columnsCountBreakPoints={{320: 1, 550: 2, 900: 3, 1200: 4}}>
-                                        <Masonry gutter='2em'>
-                                            {photosResponse}
-                                        </Masonry>
-                                    </ResponsiveMasonry> : photosResponse
+                                    rawServerResponse.error ? 
+                                        (photosResponse.length === 1 ?
+                                            photosResponse :
+                                            <ResponsiveMasonry columnsCountBreakPoints={{ 320: 1, 550: 2, 900: 3, 1200: 4 }}>
+                                                <Masonry gutter='2em'>
+                                                    {photosResponse}
+                                                </Masonry>
+                                            </ResponsiveMasonry> ) :
+
+                                            <ResponsiveMasonry columnsCountBreakPoints={{ 320: 1, 550: 2, 900: 3, 1200: 4 }}>
+                                                <Masonry gutter='2em'>
+                                                    {photosResponse}
+                                                </Masonry>
+                                            </ResponsiveMasonry>
                                 } 
                                 loader={<div className="loader"></div>} 
                                 dataLength={photosResponse.length}

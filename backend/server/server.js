@@ -48,8 +48,8 @@ app.get('/api/images/search', (req, res) => {
                 res.status(200).end();
             });
         }
-        else if (typeof keywords === 'string') {
-            (0, comms_js_1.getKeywordsMatches)(keywords)
+        else if (typeof keywords === 'string' && typeof page_size === 'string') {
+            (0, comms_js_1.getKeywordsMatches)(keywords, page_size)
                 .then(serverResponse => {
                 res.json(serverResponse);
                 res.status(200).end();
