@@ -54,6 +54,7 @@
     background-color: var(--code-block-color);
     padding: 1em;
     border-radius: .5em;
+    margin-top: 3.75em;
 }
 
 #potd-img-address::selection {
@@ -83,13 +84,18 @@
     display: inline-block;
     color: var(--text-color);
     font-size: .75rem;
-    margin: 2em 0 1em 0;
+    margin: 2.75em 0 1em 0;
     text-decoration: none;
     padding: 1em;
     border: 2px solid var(--download-btn-border);
     border-radius: .5em;
     box-shadow: 1px 1px 1px var(--download-btn-shadow);
     background-color: var(--download-btn);
+}
+
+#potd-download-text {
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 #potd-download-link:hover {
@@ -127,7 +133,17 @@
     }
 
     #potd-img-address {
-        margin: 3em 0 1.25em;
+        margin: 3.5em 0 1.25em;
+        padding: 1.25em 1em;
+        padding-top: 1em;
+    }
+
+    #potd-address-heading {
+        padding-bottom: .75em;
+    }
+
+    #potd-download-link {
+        margin-top: 1.5em;
     }
 }
 
@@ -168,10 +184,14 @@
     }
 
     #potd-img-address {
-        margin: 2em 0 1em;
+        margin: 3.5em 0 1em;
     }
 
     #potd-address-heading {
         font-size: 1.1rem;
+    }
+
+    #potd-download-link {
+        margin-top: 1.75em;
     }
 }

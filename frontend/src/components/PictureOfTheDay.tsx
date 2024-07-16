@@ -102,7 +102,9 @@ function PictureOfTheDay () {
                             </p>
                             {potdResults.hdUrl ? <a href={potdResults.hdUrl} className="potd-img-link">{potdResults.hdUrl}</a>  : <p>Not applicable.</p>}
                         </code>
-                        <a id="potd-download-link" href={potdResults.hdUrl} download><h2>Download Image</h2></a>
+                        <a id="potd-download-link" href={potdResults.hdUrl} download>
+                            <p id="potd-download-text">Download Image</p>
+                        </a>
                     </div>
                 </div>
             </div>
