@@ -53,7 +53,7 @@
 }
 
 #nav-heading{
-    color: var(--primary-color);
+    color: var(--nav-panel-heading-color);
     margin: .5em 1.75em .5em 1.75em;
     font-size: 1.35em;
     text-align: center;

@@ -7,6 +7,8 @@
     --secondary-color: #325280;
     --accent-color: #4c7fc5;
 
+    --nav-panel-heading-color: var(--accent-color);
+
     --navbar-active-page-text: var(--text-color);
     --navbar-active-page-bg: var(--primary-color);
     --navbar-hover-text: var(--text-color);
@@ -90,6 +92,8 @@ body.dark-mode{
     --primary-color: #8FABD9;
     --secondary-color: #284E8A;
     --accent-color: #3C74CE;
+
+    --nav-panel-heading-color: var(--accent-color);
 
     --navbar-active-page-text: #3C74CE;
     --navbar-active-page-bg: black;
