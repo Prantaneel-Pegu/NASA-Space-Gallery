@@ -1,37 +1,31 @@
-.ColorSchemeToggle{
+.ColorSchemeToggle {
     width: 100%;
     display: flex;
     justify-content: flex-end;
     gap: 1.25em;
-    padding: .75em 2em;
+    padding: 0.75em 2em;
 }
 
-.icon{
+.icon {
     font-size: 2rem;
 }
 
-.cst-github-icon, .cst-sun-icon, .cst-moon-icon {
+.cst-github-icon,
+.cst-sun-icon,
+.cst-moon-icon {
     width: 1.1em;
     height: 1.1em;
     fill: var(--text-color);
-    transition: fill .4s;
+    transition: fill 0.4s;
 }
 
-.cst-github-icon {
-    
-}
-
-.cst-github-icon:hover, .cst-sun-icon:hover, .cst-moon-icon:hover {
+.cst-github-icon:hover,
+.cst-sun-icon:hover,
+.cst-moon-icon:hover {
     cursor: pointer;
     fill: var(--cst-icon-hover-color);
 }
 
-/* .cst-sun-icon:hover, .cst-moon-icon:hover {
-    cursor: pointer;
-} */
-
-.toggle-hidden{
+.toggle-hidden {
     display: none;
 }
-
-

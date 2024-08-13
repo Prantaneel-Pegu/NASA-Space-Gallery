@@ -1,25 +1,25 @@
 /* NavPanel is nested inside div#nav-bar. See App.css for more info */
 
 #NavPanel {
+    height: 100%;
+    max-width: min(25rem, 82.5%);
     font-size: 1rem;
     position: fixed;
     top: 0;
     padding: 2.5rem 0 0;
     background-color: var(--body-bgcolor);
     z-index: var(--z-index-navpanel);
-    border-right: 2px solid var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    border-bottom-right-radius: .5em;
-    transition: left .4s;
+    transition: left 0.4s;
+    border-right: 1.5px solid rgb(41, 40, 40);
 }
 
-#nav-open{
+#nav-open {
     display: block;
     font-size: 1.5rem;
     position: fixed;
     top: 0;
     left: 0;
-    margin: .5em;
+    margin: 0.5em;
     width: 1.1em;
     height: 1.1em;
 }
@@ -28,14 +28,14 @@
     fill: var(--text-color);
 }
 
-#nav-close{
+#nav-close {
     display: block;
     font-size: 1.75rem;
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    margin: .35em;
+    margin: 0.35em;
     width: 1.1em;
     height: 1.1em;
 }
@@ -44,49 +44,45 @@
     fill: var(--text-color);
 }
 
-.show_nav{
+.show_nav {
     left: 0;
 }
 
-.hide_nav{
+.hide_nav {
     left: -50rem;
 }
 
-#nav-heading{
-    color: var(--nav-panel-heading-color);
-    margin: .5em 1.75em .5em 1.75em;
-    font-size: 1.35em;
-    text-align: center;
+#nav-heading {
+    color: var(--text-color);
+    margin: 1em 1.5em 1.55em;
+    font-size: 1.35rem;
+    font-weight: 700;
 }
 
-.nav-divider{
-    margin-top: .5em;
-    border: 1px solid var(--accent-color);
-}
-
-#nav-list{
+#nav-list {
     margin: 1em 0;
     margin-bottom: 1.25em;
     display: flex;
     flex-direction: column;
+    gap: 0.85rem;
     font-weight: 500;
     list-style: none;
 }
 
-.nav_link{
-    font-size: 1.1rem;
+.nav_link {
+    font-size: 1.15rem;
     text-decoration: none;
-    padding: .8em 1.75em;
+    padding: 0.8em 1.75em;
     color: var(--text-color);
-    transition: color .4s, background-color .4s;
+    transition: color 0.4s, background-color 0.4s;
 }
 
-.nav_link:hover{
+.nav_link:hover {
     color: var(--primary-color);
     backdrop-filter: blur(1em);
 }
 
-.nav_link:active{
+.nav_link:active {
     color: var(--accent-color);
     background-color: var(--secondary-color);
 }
@@ -97,8 +93,18 @@
 
 /* Media queries */
 
+@media screen and (min-width: 450px) {
+    .nav_link {
+        font-size: 1.25rem;
+    }
+
+    #nav-heading {
+        font-size: 1.45em;
+    }
+}
+
 @media screen and (min-width: 935px) {
-    .nav_link:hover{
+    .nav_link:hover {
         color: var(--navbar-hover-text);
         background-color: var(--navbar-hover-bg);
     }

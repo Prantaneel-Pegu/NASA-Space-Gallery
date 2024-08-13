@@ -1,4 +1,4 @@
-#NavBarCompact{
+#NavBarCompact {
     width: 100%;
     background-color: var(--body-bgcolor);
     display: flex;
@@ -25,7 +25,7 @@
     font-weight: 500;
     color: var(--text-color);
     text-decoration: none;
-    transition: color .4s;
+    transition: color 0.4s;
 }
 
 #navbar-header-text:hover {
@@ -44,7 +44,6 @@
 /* Media Queries */
 
 @media screen and (min-width: 975px) {
-
     :root {
         --navbar-height: 1.75em !important;
         --gallery-mtop: 0px !important;
@@ -68,6 +67,7 @@
     .nav_link {
         padding: 1.5em 1.5em !important;
         height: 100% !important;
+        font-size: 1.1rem !important;
     }
 
     .nav_link.active {
@@ -78,7 +78,8 @@
 
     .ColorSchemeToggle {
         width: max-content !important;
-        margin-left: 2.5em !important;
+        margin-left: 1.75em !important;
+        margin-right: -0.75em !important;
         padding: 1em 0 !important;
         gap: 2.5em !important;
         justify-content: space-around !important;
@@ -90,12 +91,24 @@
         justify-content: space-between;
         padding: 0 4.75em;
     }
+
+    #navbar-header {
+        display: block;
+        padding: 1em 0;
+        margin-left: -0.25rem;
+        padding-right: 10em;
+        width: max-content;
+    }
 }
 
 @media screen and (min-width: 1375px) {
     #NavBarLong {
         justify-content: space-between;
         padding: 0 5.5em;
+    }
+
+    #navbar-header {
+        padding-right: 12em;
     }
 }
 
