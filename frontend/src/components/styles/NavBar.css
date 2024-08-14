@@ -70,8 +70,12 @@
         font-size: 1.1rem !important;
     }
 
+    .nav_link:hover {
+        color: var(--navbar-active-page-text-lg) !important;
+    }
+
     .nav_link.active {
-        color: var(--navbar-active-page-text) !important;
+        color: var(--navbar-active-page-text-lg) !important;
         background-color: var(--navbar-active-page-bg) !important;
         backdrop-filter: blur(1em) !important;
     }

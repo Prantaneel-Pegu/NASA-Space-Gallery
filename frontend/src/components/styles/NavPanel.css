@@ -78,17 +78,17 @@
 }
 
 .nav_link:hover {
-    color: var(--primary-color);
+    color: var(--navbar-hover-text);
     backdrop-filter: blur(1em);
 }
 
 .nav_link:active {
-    color: var(--accent-color);
+    color: var(--navbar-active-page-text);
     background-color: var(--secondary-color);
 }
 
 .nav_link.active {
-    color: var(--accent-color);
+    color: var(--navbar-active-page-text);
 }
 
 /* Media queries */
