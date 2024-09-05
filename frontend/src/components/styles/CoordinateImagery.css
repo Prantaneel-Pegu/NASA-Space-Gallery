@@ -20,20 +20,25 @@
     font-size: 1rem;
 }
 
-#ci-form-latitude-container, #ci-form-longitude-container, #ci-form-zoom-container {
+#ci-form-latitude-container,
+#ci-form-longitude-container,
+#ci-form-zoom-container {
     display: flex;
     margin: 1em 0;
     align-items: center;
 }
 
-#ci-form-lat-label, #ci-form-lon-label, #ci-form-zoom-label {
-    padding: 0 .5em;
+#ci-form-lat-label,
+#ci-form-lon-label,
+#ci-form-zoom-label {
+    padding: 0 0.5em;
 }
 
-#ci-form-latitude, #ci-form-longitude{
+#ci-form-latitude,
+#ci-form-longitude {
     flex-grow: 1;
     margin: 0 1em 0 0;
-    padding: .25em;
+    padding: 0.25em;
     padding-right: 0;
     color: var(--text-color);
     background-color: var(--searchBar-color);
@@ -42,7 +47,7 @@
 
 #ci-form-zoom {
     margin: 0 1em 0 0;
-    padding: .25em;
+    padding: 0.25em;
     padding-right: 0;
     color: var(--text-color);
     background-color: var(--searchBar-color);
@@ -52,13 +57,13 @@
 /* Remove number input scroll arrows in Chrome, Safari, Edge, Opera */
 #CoordinateImagery input::-webkit-outer-spin-button,
 #CoordinateImagery input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Remove number input scroll arrows in Firefox */
-#CoordinateImagery input[type=number] {
-  appearance: textfield;
+#CoordinateImagery input[type="number"] {
+    appearance: textfield;
 }
 
 #ci-form-submit-btn {
@@ -67,9 +72,9 @@
     margin: 1em;
     margin-top: 0;
     text-decoration: none;
-    padding: .5em .75em;
+    padding: 0.5em 0.75em;
     border: 2px solid var(--download-btn-border);
-    border-radius: .5em;
+    border-radius: 0.5em;
     box-shadow: 1px 1px 1px var(--download-btn-shadow);
     background-color: var(--download-btn);
 }
@@ -102,21 +107,21 @@
     padding: 1.5em;
     min-height: 250px;
     background-color: var(--img-container-bg);
-    border-radius: .5em;
+    border-radius: 0.5em;
 }
 
 #ci-main-image {
     width: 100%;
-    border-radius: .5em;
+    border-radius: 0.5em;
 }
 
 #ci-img-load-time {
     font-style: italic;
-    padding-left: .25em;
+    padding-left: 0.25em;
 }
 
 #CoordinateImagery .loader {
-    margin: 8em 40%
+    margin: 8em 40%;
 }
 
 /* Media queries */
@@ -144,10 +149,9 @@
 
     #ci-img-load-time {
         display: inline-block;
-        font-size: .75rem;
+        font-size: 0.75rem;
     }
 }
-
 
 @media screen and (min-width: 810px) {
     #ci-heading {
@@ -159,7 +163,7 @@
 
     #ci-desc {
         font-size: 1.25rem;
-        padding-bottom: .5em;
+        padding-bottom: 0.5em;
     }
 
     #ci-main {
@@ -178,29 +182,33 @@
     }
 
     #ci-form-fieldset {
-        padding: .5em .75em;
+        padding: 0.5em 0.75em;
     }
 
     #ci-form-legend {
         font-size: 1.25rem;
     }
 
-    #ci-form-lat-label, #ci-form-lon-label, #ci-form-zoom-label {
+    #ci-form-lat-label,
+    #ci-form-lon-label,
+    #ci-form-zoom-label {
         font-size: 1.15rem;
     }
 
-    
-    #ci-form-latitude, #ci-form-longitude, #ci-form-zoom{
+    #ci-form-latitude,
+    #ci-form-longitude,
+    #ci-form-zoom {
         margin: 0 1.25em 0 0;
         font-size: 1rem;
     }
 
-    #ci-form-latitude, #ci-form-longitude {
-        margin-left: .75em;
-        margin-right: .75em;
-        padding-left: .35em;
+    #ci-form-latitude,
+    #ci-form-longitude {
+        margin-left: 0.75em;
+        margin-right: 0.75em;
+        padding-left: 0.35em;
     }
-    
+
     #ci-form-submit-btn {
         font-size: 1rem;
     }
@@ -221,7 +229,7 @@
     }
 
     #ci-img-load-time {
-        margin-top: .75em;
+        margin-top: 0.75em;
     }
 }
 

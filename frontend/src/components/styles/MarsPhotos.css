@@ -27,7 +27,7 @@
     display: flex;
     padding: 1em 0;
     align-items: center;
-    color: var( --mp-legend);
+    color: var(--mp-legend);
 }
 
 #mpf-date-container {
@@ -41,8 +41,8 @@
     flex-grow: 1;
     min-width: 10em;
     margin: 0 1em;
-    padding: .25em;
-    padding-left: .75em;
+    padding: 0.25em;
+    padding-left: 0.75em;
     padding-right: 0;
     color: var(--text-color);
     background-color: var(--searchBar-color);
@@ -54,9 +54,9 @@
     color: var(--text-color);
     margin: 0 1em 0 0;
     text-decoration: none;
-    padding: .5em .75em;
+    padding: 0.5em 0.75em;
     border: 2px solid var(--download-btn-border);
-    border-radius: .5em;
+    border-radius: 0.5em;
     box-shadow: 1px 1px 1px var(--download-btn-shadow);
     background-color: var(--download-btn);
 }
@@ -90,13 +90,13 @@
     /* margin: .25rem 0; */
     padding: 1.5em;
     background-color: var(--img-container-bg);
-    border-radius: .5em;
+    border-radius: 0.5em;
 }
 
 .mp-photo-tile-img {
     width: 100%;
-    min-height: 120px; 
-    border-radius: .5em;
+    min-height: 120px;
+    border-radius: 0.5em;
 }
 
 #MarsPhotos .loader {
@@ -116,9 +116,9 @@
 }
 
 @media screen and (min-width: 550px) {
-    #mp-results .infinite-scroll-component{
-        margin-left: -.75em;
-        margin-right: -.75em;
+    #mp-results .infinite-scroll-component {
+        margin-left: -0.75em;
+        margin-right: -0.75em;
     }
 
     #mp-desc {
@@ -138,7 +138,7 @@
     }
 
     #mpf-date {
-        padding-right: .5em;
+        padding-right: 0.5em;
         font-size: 1rem;
     }
 
@@ -176,10 +176,9 @@
     }
 
     #mpf-submit-btn {
-        font-size: .9rem;
+        font-size: 0.9rem;
     }
 
-    
     #mp-results-total {
         font-size: 1.1rem;
     }
@@ -188,4 +187,3 @@
         font-size: 1.2rem;
     }
 }
-

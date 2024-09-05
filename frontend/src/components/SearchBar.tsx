@@ -1,7 +1,7 @@
 import { GetImageResults } from '../services/communication';
 import './styles/SearchBar.css';
 import { SearchIcon } from './SvgIcons';
-import { Dispatch, FormEvent, SetStateAction, useEffect } from 'react';
+import { Dispatch, FormEvent, SetStateAction, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 type SearchBarProps = {
@@ -25,12 +25,13 @@ function SearchBar (props: SearchBarProps) {
     const searchBoxValue = props.searchBoxValue;
     const setSearchBoxValue= props.setSearchBoxValue;
     const setClickBackEvent = props.setClickBackEvent;
+    const isFirstClickBack = useRef(true);
 
     useEffect(() => {
         // Updates searchBox text after new search or after user clicks back button
         const searchBox = document.querySelector<HTMLInputElement>("#search-box");
         searchBox!.value = searchBoxValue || searchParams.get('search') || searchQuery.query
-        if (searchResult.results.length === 0) setClickBackEvent(true);
+        if (searchResult.results.length === 0 && !isFirstClickBack) setClickBackEvent(true); else isFirstClickBack.current = false;
     })
 
     function handleSubmit (e: FormEvent<HTMLFormElement>) {
