@@ -105,7 +105,7 @@ app.get('/api/roverphotos/search', (req, res) => {
 				});
 		} 
 
-		else {
+		else {  
 			console.error("\x1b[31m", `[server]`, "\x1b[0m", ": Error: Invalid parameters given.");
 			res.json({ 
 				date: dateformat(new Date(), "mm-dd-yyyy hh:MM:ss TT"),
