@@ -1,0 +1,19 @@
+NOTE: age is used for generating keys
+
+
+1/ to encrypt .env:
+
+        sops -e .env > .enc.env   [.sops.yaml with public key must be present]
+
+                                OR
+
+        sops encrypt --age private_key .env > .enc.env
+
+
+2/ to decrypt .env:
+
+        export SOPS_AGE_KEY='private_key' && sops -d .enc.env > .env
+
+                                OR
+
+        SOPS_AGE_KEY="private_key" sops -d .enc.env > .env
