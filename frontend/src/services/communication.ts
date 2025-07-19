@@ -1,8 +1,8 @@
 import axios, { AxiosError, isAxiosError } from "axios";
 
-const nasaImagesUrl = `/api/images/search`;
-const potdUrl = `/api/potd`;
-const roverPhotosUrl = `/api/roverphotos/search`;
+const nasaImagesUrl = `api/images/search`;
+const potdUrl = `api/potd`;
+const roverPhotosUrl = `api/roverphotos/search`;
 
 const requestTimeout = 15000;
 
@@ -314,7 +314,6 @@ async function getRoverPhotos(
         if (photos.length <= 0) {
             throw new TypeError("No results found.");
         }
-
     } catch (err) {
         console.log("Encountered an Error: ", err);
 
