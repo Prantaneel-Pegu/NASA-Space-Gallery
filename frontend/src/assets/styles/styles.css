@@ -152,8 +152,8 @@ body.dark-mode {
     margin: 18rem auto;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 8px solid #007a99;
-    border-right-color: #00c8ff;
+    border: 8px solid #1f4f91;
+    border-right-color: #163b6c;
     animation: l2 1s infinite linear;
 }
 
