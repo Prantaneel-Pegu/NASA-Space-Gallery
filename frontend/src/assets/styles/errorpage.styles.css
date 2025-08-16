@@ -1,5 +1,5 @@
 /* Variables */
-:root{
+:root {
     --body-bgcolor: #0a0e13;
     --text-color: #e9ecf1;
     --primary-color: #a6bad6;
@@ -9,22 +9,21 @@
     --fsz1: 10px;
 }
 
-
 /* General Classes */
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
     color-scheme: dark;
     height: 100%;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,11 +34,10 @@ body{
     height: 100%;
 }
 
-hr{
+hr {
     border: 0;
     margin: 1em 0 0 0;
 }
-
 
 /* Specialized Selectors */
 
@@ -72,13 +70,15 @@ hr{
     font-size: 1rem;
 }
 
-#router-error a{
+#router-error a {
     color: var(--accent-color);
 }
 
-
 @media screen and (min-width: 850px) {
-    
+    #router-error {
+        margin-top: 12em;
+    }
+
     #router-error-code {
         font-size: 2.9rem;
     }

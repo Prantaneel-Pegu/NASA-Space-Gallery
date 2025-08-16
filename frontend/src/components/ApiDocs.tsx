@@ -7,7 +7,7 @@ function ApiDocs() {
 
             <p id="api-address">
                 The API is located at{" "}
-                <a href="./api" id="api-link">
+                <a href="./api" id="api-link" target="_blank">
                     /api
                 </a>
                 .
