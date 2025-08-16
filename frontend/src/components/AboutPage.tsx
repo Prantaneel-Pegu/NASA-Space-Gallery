@@ -1,6 +1,6 @@
 import "./styles/AboutPage.css";
 import DeveloperAvatar from "../assets/pictures/my-image.png";
-import { GithubIcon, IndeedIcon, LinkedInIcon, TwitterIcon } from "./SvgIcons";
+import { GithubIcon, EmailIcon, LinkedInIcon, TwitterIcon } from "./SvgIcons";
 
 function AboutPage() {
     return (
@@ -16,8 +16,8 @@ function AboutPage() {
                 </span>{" "}
                 project that utilises the various NASA and Google Earth Engine
                 APIs to present geographical and astronomical data in a clean
-                and organised manner. I have spent countless hours (250+) in
-                this project to make sure that this Gallery provides a neat and
+                and organised format. I have spent countless hours in this
+                project to make sure that this Gallery provides a neat and
                 intuitive UI for accessing the awesome imagery hosted by NASA
                 and Google.
             </p>
@@ -52,19 +52,27 @@ function AboutPage() {
                 It has given me a deep appreciation for the effort that goes
                 into building features we often take for granted on websites. I
                 am truly happy for taking the initiative to start this project,
-                as it has taught me invaluable lessons. This project is my first
+                as it has taught me invaluable lessons. This was my first
                 full-stack project, and I am proud of the work I’ve done. While
-                this website may be a little rough around the edges, especially
-                the design part, functionality-wise it is very robust.
+                the website may be a little rough around the edges, especially
+                the design part, functionality-wise it is quite robust.
             </p>
 
             <p className="project-desc">
                 Thank you, my anonymous visitor, for taking the time to view my
-                project. I truly wish that you have had a satisfactory
-                experience using this website. Feel free to let me know if there
-                are any shortcomings you come to find. I would really love to
-                hear about your experience using my website. As always, I'll be
-                available at my Twitter (X.com) handle. Bye!
+                project. I wish that you have had a satisfactory experience
+                using this website. Please do let me know if there are any
+                shortcomings you come to find. I would really love to hear about
+                your experience using my website. As always, I'll be available
+                at my{" "}
+                <a
+                    href="https://www.linkedin.com/in/prantaneel-pegu/"
+                    id="footer-portfolio-link"
+                    target="_blank"
+                >
+                    LinkedIn
+                </a>
+                . Bye!
             </p>
 
             <div id="devcard-and-socials">
@@ -81,6 +89,7 @@ function AboutPage() {
                         <a
                             href="https://x.com/PrantaneelPegu"
                             className="adc-handle-link"
+                            target="_blank"
                         >
                             @Prantaneel Pegu
                         </a>
@@ -92,29 +101,33 @@ function AboutPage() {
                         <a
                             href="https://github.com/Prantaneel-Pegu"
                             className="about-social-link"
+                            target="_blank"
                         >
                             <GithubIcon classNames="about-social-icon" />
                         </a>
 
                         <a
-                            href="https://x.com/PrantaneelPegu"
-                            className="about-social-link"
-                        >
-                            <TwitterIcon classNames="about-social-icon" />
-                        </a>
-
-                        <a
                             href="https://www.linkedin.com/in/prantaneel-pegu/"
                             className="about-social-link"
+                            target="_blank"
                         >
                             <LinkedInIcon classNames="about-social-icon" />
                         </a>
 
                         <a
-                            href="https://profile.indeed.com/p/prantaneelp-jv4nj7f"
+                            href="https://x.com/PrantaneelPegu"
                             className="about-social-link"
+                            target="_blank"
                         >
-                            <IndeedIcon classNames="about-social-icon" />
+                            <TwitterIcon classNames="about-social-icon" />
+                        </a>
+
+                        <a
+                            href="mailto:contact@prantaneelpegu.com"
+                            className="about-social-link"
+                            target="_blank"
+                        >
+                            <EmailIcon classNames="about-social-icon" />
                         </a>
                     </div>
                 </div>

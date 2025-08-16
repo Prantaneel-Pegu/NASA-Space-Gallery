@@ -28,7 +28,7 @@
 }
 
 .api-req-types-item {
-    margin: .25em 0;
+    margin: 0.25em 0;
 }
 
 .api-req-type-link {
@@ -47,7 +47,7 @@
 
 .usage-types-head {
     font-size: 1.1rem !important;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .usage-types {
@@ -57,9 +57,9 @@
 .usage-example-code {
     display: block;
     margin: 2em 0;
-    padding: 1em .75em;
+    padding: 1em 0.75em;
     background-color: var(--api-code-bg);
-    border-radius: .5em;
+    border-radius: 0.5em;
     word-break: break-all;
     font-size: 1rem;
     max-width: 45em;
@@ -73,7 +73,7 @@
     font-size: 1.1rem !important;
     font-weight: 600;
     color: black;
-    padding-bottom: .75em;
+    padding-bottom: 0.75em;
 }
 
 .usage-example-code-link {
@@ -87,15 +87,14 @@
 
 #sat-req-params-list {
     margin: 1em;
-    padding-left: .5em;
+    padding-left: 0.5em;
 }
 
 .sat-req-param {
     font-size: 1rem;
-    padding: .5em;
+    padding: 0.5em;
     padding-left: 0;
 }
-
 
 /* Media queries */
 
@@ -109,7 +108,8 @@
         font-weight: 500;
     }
 
-    #ApiDocs p, .api-req-type-link {
+    #ApiDocs p,
+    .api-req-type-link {
         font-size: 1.1rem;
     }
 

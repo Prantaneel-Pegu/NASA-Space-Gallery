@@ -1,5 +1,5 @@
 import "./styles/Copyright.css";
-import { GithubIcon, IndeedIcon, LinkedInIcon, TwitterIcon } from "./SvgIcons";
+import { GithubIcon, EmailIcon, LinkedInIcon, TwitterIcon } from "./SvgIcons";
 import FooterAvatarImg from "../assets/pictures/my-image.png";
 import FooterRocketImg from "../assets/pictures/rocket.png";
 
@@ -13,10 +13,11 @@ function Copyright() {
                     Hi there👋! This is a project I created for my portfolio.
                     You can check out my other projects on{" "}
                     <a
-                        href="https://www.linkedin.com/in/prantaneel-pegu/"
+                        href="https://prantaneelpegu.com"
                         id="footer-portfolio-link"
+                        target="_blank"
                     >
-                        LinkedIn
+                        my website
                     </a>
                     .
                 </p>
@@ -34,6 +35,7 @@ function Copyright() {
                     <a
                         href="https://x.com/PrantaneelPegu"
                         className="footer-dev-handle-link"
+                        target="_blank"
                     >
                         @Prantaneel Pegu
                     </a>
@@ -44,17 +46,26 @@ function Copyright() {
                 <p id="ful-head">Useful Links:</p>
 
                 <div id="ful-container">
-                    <a href="https://api.nasa.gov/" className="ful-link">
+                    <a
+                        href="https://api.nasa.gov/"
+                        className="ful-link"
+                        target="_blank"
+                    >
                         <p className="ful-link-text">NASA APIs Page</p>
                     </a>
 
-                    <a href="https://images.nasa.gov/" className="ful-link">
+                    <a
+                        href="https://images.nasa.gov/"
+                        className="ful-link"
+                        target="_blank"
+                    >
                         <p className="ful-link-text">NASA Multimedia Library</p>
                     </a>
 
                     <a
                         href="https://developers.google.com/earth-engine"
                         className="ful-link"
+                        target="_blank"
                     >
                         <p className="ful-link-text">Google Earth Engine</p>
                     </a>
@@ -62,34 +73,38 @@ function Copyright() {
             </div>
 
             <div id="footer-socials">
-                <p id="footer-socials-head">Follow me:</p>
+                <p id="footer-socials-head">Contact me:</p>
                 <div id="footer-socials-container">
                     <a
                         href="https://github.com/Prantaneel-Pegu"
                         className="footer-social-link"
+                        target="_blank"
                     >
                         <GithubIcon classNames="fsl-icon" />
                     </a>
 
                     <a
-                        href="https://x.com/PrantaneelPegu"
-                        className="footer-social-link"
-                    >
-                        <TwitterIcon classNames="fsl-icon" />
-                    </a>
-
-                    <a
                         href="https://www.linkedin.com/in/prantaneel-pegu/"
                         className="footer-social-link"
+                        target="_blank"
                     >
                         <LinkedInIcon classNames="fsl-icon" />
                     </a>
 
                     <a
-                        href="https://profile.indeed.com/p/prantaneelp-jv4nj7f"
+                        href="https://x.com/PrantaneelPegu"
                         className="footer-social-link"
+                        target="_blank"
                     >
-                        <IndeedIcon classNames="fsl-icon" />
+                        <TwitterIcon classNames="fsl-icon" />
+                    </a>
+
+                    <a
+                        href="mailto:contact@prantaneelpegu.com"
+                        className="footer-social-link"
+                        target="_blank"
+                    >
+                        <EmailIcon classNames="fsl-icon" />
                     </a>
                 </div>
             </div>
@@ -103,7 +118,8 @@ function Copyright() {
             </div>
 
             <p id="footer-copyright">
-                © Prantaneel Pegu, 2024. All rights reserved.
+                © Prantaneel Pegu, {new Date().getFullYear()}. All rights
+                reserved.
             </p>
         </footer>
     );
