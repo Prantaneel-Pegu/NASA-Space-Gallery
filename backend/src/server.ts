@@ -251,6 +251,7 @@ router.get("/api", (req, res) => {
 });
 
 router.use(appPaths, express.static(appDir));
+router.use('/assets', express.static(path.join(appDir, 'assets')));
 
 router.get("*", (req, res) => {
     const reqUrl = req.protocol + "://" + req.get("host") + req.originalUrl;
