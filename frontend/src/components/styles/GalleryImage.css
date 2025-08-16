@@ -58,6 +58,10 @@
     text-decoration: underline;
 }
 
+#gi-main {
+    margin-bottom: 2rem;
+}
+
 #gallery-download-link {
     display: inline-block;
     color: var(--text-color);
@@ -80,10 +84,6 @@
     margin: 1.5em 0 !important;
 }
 
-#GalleryImage .loader {
-    margin: 8em auto 0;
-}
-
 /* Media Queries */
 
 @media screen and (min-width: 550px) {
@@ -95,7 +95,7 @@
 
     #gi-main {
         margin-top: 3em;
-        margin-bottom: 1.5em;
+        margin-bottom: 2rem;
     }
 
     #gallery-image-container {
@@ -114,7 +114,7 @@
     }
 
     #gi-main {
-        margin: 4em 0 1.9em;
+        margin: 4em 0 4rem;
         width: 100%;
         display: grid;
         gap: 3em;

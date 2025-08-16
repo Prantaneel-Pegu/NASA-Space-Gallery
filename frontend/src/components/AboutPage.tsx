@@ -1,5 +1,5 @@
 import "./styles/AboutPage.css";
-import DeveloperAvatar from "../assets/pictures/my-image.jpg";
+import DeveloperAvatar from "../assets/pictures/my-image.png";
 import { GithubIcon, IndeedIcon, LinkedInIcon, TwitterIcon } from "./SvgIcons";
 
 function AboutPage() {

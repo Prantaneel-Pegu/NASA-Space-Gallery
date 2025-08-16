@@ -1,3 +1,3 @@
 # NASA Space Gallery
 
-Live website link: [https://nasa-space-gallery.onrender.com](https://nasa-space-gallery.onrender.com)
+Live website link: [https://projects.prantaneelpegu.com/nasa-space-gallery/](https://projects.prantaneelpegu.com/nasa-space-gallery/)

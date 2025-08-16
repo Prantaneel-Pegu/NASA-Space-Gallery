@@ -21,7 +21,7 @@
 }
 
 #gallery-image-grid {
-    margin: 0.75em 0 0;
+    margin: 3em 0 0;
     display: grid;
     font-size: small;
     font-style: normal;
@@ -36,7 +36,7 @@
 
 .gallery-image {
     max-width: 100%;
-    min-height: 120px;
+    min-height: 140px;
     border-radius: 0.5em;
 }
 
@@ -45,10 +45,10 @@
     color: var(--text-color);
 }
 
-/* Responsive media queries */
+/* Media queries */
 
-@media screen and (min-width: 382px) {
+@media screen and (min-width: 768px) {
     #gallery-image-grid {
-        margin: 0.75em 0.75em 0;
+        margin: 3.75em 0 0;
     }
 }

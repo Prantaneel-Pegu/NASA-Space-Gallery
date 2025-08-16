@@ -95,12 +95,8 @@
 
 .mp-photo-tile-img {
     width: 100%;
-    min-height: 120px;
+    min-height: 140px;
     border-radius: 0.5em;
-}
-
-#MarsPhotos .loader {
-    margin-top: 10.25em;
 }
 
 /* Media queries */

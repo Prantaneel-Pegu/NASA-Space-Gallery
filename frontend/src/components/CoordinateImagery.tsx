@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import "./styles/CoordinateImagery.css";
 
 type Coordinates = {
@@ -22,6 +22,7 @@ function CoordinateImagery() {
     const [imgLoadStartTime, setImgLoadStartTime] = useState(0);
     const [imgLoadEndTime, setImgLoadEndTime] = useState(0);
     const [imgTimedOut, setImageTimedOut] = useState(false);
+    const imgTimedOutCheckerId = useRef(0);
     const imageTimeout = 15000;
     const imageWidth = 400;
     const imageHeight = 400;
@@ -74,7 +75,7 @@ function CoordinateImagery() {
         setSearchPending(true);
         setImageTimedOut(false);
         setImgLoadStartTime(performance.now());
-        setTimeout(() => {
+        imgTimedOutCheckerId.current = setTimeout(() => {
             setImageTimedOut(true);
         }, imageTimeout);
     }
@@ -194,6 +195,9 @@ function CoordinateImagery() {
                                         setImgLoadEndTime(performance.now());
                                         setImgLoaded(true);
                                         setSearchPending(false);
+                                        clearTimeout(
+                                            imgTimedOutCheckerId.current
+                                        );
                                     }}
                                     style={imgLoaded ? {} : { display: "none" }}
                                 />

@@ -94,6 +94,7 @@
 }
 
 #ci-timedout-desc {
+    margin-top: 1rem;
     font-size: 1rem;
 }
 
@@ -118,10 +119,6 @@
 #ci-img-load-time {
     font-style: italic;
     padding-left: 0.25em;
-}
-
-#CoordinateImagery .loader {
-    margin: 8em 40%;
 }
 
 /* Media queries */

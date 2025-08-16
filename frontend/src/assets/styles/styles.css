@@ -145,55 +145,77 @@ body.dark-mode {
 }
 
 /* Loading animation */
+/* HTML: <div class="loader"></div> */
+
 .loader {
-    margin: 5em auto;
-    --s: 20px;
-    --_d: calc(0.353 * var(--s));
-    width: calc(var(--s) + var(--_d));
+    width: 50px;
+    margin: 18rem auto;
     aspect-ratio: 1;
-    display: grid;
+    border-radius: 50%;
+    border: 8px solid #007a99;
+    border-right-color: #00c8ff;
+    animation: l2 1s infinite linear;
 }
 
-.loader:before,
-.loader:after {
-    content: "";
-    grid-area: 1/1;
-    clip-path: polygon(
-        var(--_d) 0,
-        100% 0,
-        100% calc(100% - var(--_d)),
-        calc(100% - var(--_d)) 100%,
-        0 100%,
-        0 var(--_d)
-    );
-    background: conic-gradient(
-        from -90deg at calc(100% - var(--_d)) var(--_d),
-        var(--loader-color-1) 135deg,
-        var(--loader-color-2) 0 270deg,
-        var(--loader-color-3) 0
-    );
-    animation: l6 2s infinite;
+#Gallery .loader {
+    margin-top: 10rem;
 }
 
-.loader:after {
-    animation-delay: -1s;
+#GalleryImage .loader {
+    margin-top: 10rem;
 }
 
-@keyframes l6 {
-    0% {
-        transform: translate(0, 0);
+#CoordinateImagery .loader {
+    margin-top: 10rem;
+}
+
+#MarsPhotos .loader {
+    margin-top: 9rem;
+}
+
+#KeywordMatches .loader {
+    margin-bottom: 16em;
+}
+
+#SearchResults .loader {
+    margin-top: 10rem;
+}
+
+#gallery-image-grid .loader {
+    margin-top: 7.5rem;
+}
+
+@keyframes l2 {
+    to {
+        transform: rotate(1turn);
     }
-    25% {
-        transform: translate(30px, 0);
+}
+
+@media screen and (min-width: 720px) {
+    .loader {
+        margin: 12rem auto;
     }
-    50% {
-        transform: translate(30px, 30px);
+
+    #Gallery .loader {
+        margin-top: 11.5rem;
     }
-    75% {
-        transform: translate(0, 30px);
+
+    #gallery-image-grid .loader {
+        margin-top: 8.5rem;
     }
-    100% {
-        transform: translate(0, 0);
+
+    #MarsPhotos .loader {
+        margin-top: 11.5rem;
+    }
+}
+
+@media screen and (min-width: 965px) {
+    .loader {
+        margin: 12rem auto;
+    }
+
+    #gallery-image-grid .loader {
+        margin-top: 8.5rem;
     }
 }
 
