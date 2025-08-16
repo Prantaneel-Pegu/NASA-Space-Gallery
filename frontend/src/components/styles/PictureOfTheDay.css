@@ -112,10 +112,6 @@
     text-align: center;
 }
 
-#Potd .loader {
-    margin: 20em auto 0;
-}
-
 /* Media Queries */
 
 @media screen and (min-width: 550px) {

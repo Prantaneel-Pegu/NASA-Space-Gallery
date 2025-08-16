@@ -407,7 +407,9 @@ function SearchResults(props: SearchResultsProps) {
                                 </Masonry>
                             </ResponsiveMasonry>
                         ) : (
-                            <div id="search-results-err">{searchResult.results}</div>
+                            <div id="search-results-err">
+                                {searchResult.results}
+                            </div>
                         )
                     }
                     loader={<div className="loader"></div>}

@@ -1,6 +1,6 @@
 import "./styles/Copyright.css";
 import { GithubIcon, IndeedIcon, LinkedInIcon, TwitterIcon } from "./SvgIcons";
-import FooterAvatarImg from "../assets/pictures/my-image.jpg";
+import FooterAvatarImg from "../assets/pictures/my-image.png";
 import FooterRocketImg from "../assets/pictures/rocket.png";
 
 function Copyright() {

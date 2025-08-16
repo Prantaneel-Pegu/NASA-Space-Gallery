@@ -31,6 +31,7 @@ const appPaths = [
     "/error",
     "/",
 ];
+const appRoot = "/nasa-space-gallery";
 const appDir = path.resolve(__dirname, `../dist`);
 const errorPage = path.resolve(__dirname, `../dist/errorpage.html`);
 
@@ -265,13 +266,13 @@ router.get("*", (req, res) => {
     res.sendFile(errorPage);
 });
 
-app.use("/nasa-space-gallery", router);
+app.use(appRoot, router);
 
 app.listen(port, () => {
     console.log(
         "\x1b[32m",
         `[server]`,
         "\x1b[0m",
-        `: Server is running at http://localhost:${port}.`
+        `: Server is running at http://localhost:${port}${appRoot}.`
     );
 });
