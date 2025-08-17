@@ -45,7 +45,7 @@
 #gallery-address-heading {
     color: black;
     padding: 0 0 0.5em 0;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .gallery-img-link {
@@ -68,11 +68,15 @@
     font-size: 0.75rem;
     margin: 3em 0 3em 0;
     text-decoration: none;
-    padding: 1em;
+    padding: 1em 1.5em;
     border: 2px solid var(--download-btn-border);
     border-radius: 0.5em;
     box-shadow: 1px 1px 1px var(--download-btn-shadow);
     background-color: var(--download-btn);
+}
+
+#gallery-download-link h2 {
+    font-weight: 500;
 }
 
 #gallery-download-link:hover {
@@ -103,6 +107,13 @@
         width: 50%;
         margin-left: 3em;
         margin-bottom: 3em;
+    }
+
+    #gallery-address-heading {
+        color: black;
+        padding: 0 0 0.5em 0;
+        font-size: 1.1rem;
+        font-weight: 600;
     }
 }
 
@@ -142,5 +153,9 @@
 
     #gallery-image-address {
         display: block;
+    }
+
+    #gallery-address-heading {
+        font-size: 1.2rem;
     }
 }

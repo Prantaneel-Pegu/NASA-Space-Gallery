@@ -51,7 +51,7 @@
 
 #adc-handle {
     display: inline-block;
-    padding-left: .65em;
+    padding-left: 1.2em;
     font-size: 1rem;
     font-weight: 400;
 }
@@ -59,7 +59,8 @@
 .adc-handle-link {
     color: var(--text-color);
     text-decoration: none;
-    transition: color .4s;
+    transition: color 0.4s;
+    display: flex;
 }
 
 .adc-handle-link:hover {
@@ -89,13 +90,12 @@
     width: 1.1em;
     height: 1.1em;
     fill: var(--text-color);
-    transition: fill .4s;
+    transition: fill 0.4s;
 }
 
 .about-social-icon:hover {
     fill: var(--secondary-color);
 }
-
 
 /* Media queries */
 
@@ -109,7 +109,9 @@
         margin-left: 1.75em;
     }
 
-    .project-desc, #welcome-text, .about-api-item {
+    .project-desc,
+    #welcome-text,
+    .about-api-item {
         font-size: 1.1rem;
     }
 
@@ -144,4 +146,3 @@
         height: 1.25em;
     }
 }
-

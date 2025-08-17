@@ -78,7 +78,7 @@
 #potd-address-heading {
     color: black;
     padding: 0 0 0.5em 0;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 #potd-download-link {
@@ -87,7 +87,7 @@
     font-size: 0.75rem;
     margin: 2.75em 0 1em 0;
     text-decoration: none;
-    padding: 1em;
+    padding: 1em 1.5em;
     border: 2px solid var(--download-btn-border);
     border-radius: 0.5em;
     box-shadow: 1px 1px 1px var(--download-btn-shadow);
@@ -99,9 +99,9 @@
     font-weight: 500;
 }
 
-#potd-download-link:hover {
+/* #potd-download-link:hover {
     text-decoration: underline;
-}
+} */
 
 #potd-download-link:hover {
     cursor: pointer;
@@ -198,7 +198,8 @@
 
     #potd-img-address {
         margin: 3.5em 0 1em;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
     }
 
     #potd-address-heading {

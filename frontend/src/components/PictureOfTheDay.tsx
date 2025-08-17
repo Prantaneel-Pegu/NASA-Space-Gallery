@@ -20,6 +20,21 @@ function PictureOfTheDay() {
         miscError: ``,
     };
 
+    const handleDownload = async () => {
+        const response = await fetch(potdResults.hdUrl, {
+            mode: "cors",
+        });
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `${potdResults.title}.jpg`; // jpg is assumed because it is most common
+        link.click();
+
+        URL.revokeObjectURL(url);
+    };
+
     getPotd()
         .then((response) => {
             const responseClone = cloneDeep(response);
@@ -145,13 +160,19 @@ function PictureOfTheDay() {
                                 <p>Not provided.</p>
                             )}
                         </code>
-                        <a
+                        <button
+                            id="potd-download-link"
+                            onClick={handleDownload}
+                        >
+                            <p id="potd-download-text">Download Image</p>
+                        </button>
+                        {/* <a
                             id="potd-download-link"
                             href={potdResults.hdUrl}
                             download
                         >
                             <p id="potd-download-text">Download Image</p>
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </div>

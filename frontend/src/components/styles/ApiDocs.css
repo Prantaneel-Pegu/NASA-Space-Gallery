@@ -83,6 +83,7 @@
 
 .usage-example-code-link:hover {
     cursor: pointer;
+    border-bottom: 1.5px solid var(--code-underline-color);
 }
 
 #sat-req-params-list {
@@ -127,7 +128,7 @@
     }
 
     .usage-example-head {
-        font-size: 1.15rem !important;
+        font-size: 1.2rem !important;
     }
 
     .sat-req-param {

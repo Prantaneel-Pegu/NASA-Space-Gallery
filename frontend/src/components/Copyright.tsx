@@ -10,7 +10,7 @@ function Copyright() {
 
             <div id="footer-desc">
                 <p id="footer-desc-p">
-                    Hi there👋! This is a project I created for my portfolio.
+                    Hi there 👋! This is a project I created for my portfolio.
                     You can check out my other projects on{" "}
                     <a
                         href="https://prantaneelpegu.com"
@@ -37,7 +37,15 @@ function Copyright() {
                         className="footer-dev-handle-link"
                         target="_blank"
                     >
-                        @Prantaneel Pegu
+                        <span>@</span>
+                        <span
+                            style={{
+                                marginLeft: "0.175em",
+                                marginTop: "0.1em",
+                            }}
+                        >
+                            Prantaneel Pegu
+                        </span>
                     </a>
                 </p>
             </div>
@@ -51,7 +59,7 @@ function Copyright() {
                         className="ful-link"
                         target="_blank"
                     >
-                        <p className="ful-link-text">NASA APIs Page</p>
+                        <p className="ful-link-text">NASA APIs Listing</p>
                     </a>
 
                     <a

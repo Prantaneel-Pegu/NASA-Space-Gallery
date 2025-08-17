@@ -25,6 +25,7 @@ const appPaths = [
     "/error",
     "/",
 ];
+const appRoot = "/nasa-space-gallery";
 const appDir = path_1.default.resolve(__dirname, `../dist`);
 const errorPage = path_1.default.resolve(__dirname, `../dist/errorpage.html`);
 app.set("trust proxy", 2 /* number of proxies between user and server */);
@@ -155,12 +156,13 @@ router.get("/api", (req, res) => {
     });
 });
 router.use(appPaths, express_1.default.static(appDir));
+router.use('/assets', express_1.default.static(path_1.default.join(appDir, 'assets')));
 router.get("*", (req, res) => {
     const reqUrl = req.protocol + "://" + req.get("host") + req.originalUrl;
     console.log("\x1b[36m", "[server]", "\x1b[0m", ": Received request: ", reqUrl);
     res.sendFile(errorPage);
 });
-app.use("/nasa-space-gallery", router);
+app.use(appRoot, router);
 app.listen(port, () => {
-    console.log("\x1b[32m", `[server]`, "\x1b[0m", `: Server is running at http://localhost:${port}.`);
+    console.log("\x1b[32m", `[server]`, "\x1b[0m", `: Server is running at http://localhost:${port}${appRoot}.`);
 });

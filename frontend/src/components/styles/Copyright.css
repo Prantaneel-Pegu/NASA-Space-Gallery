@@ -1,10 +1,10 @@
-:root{
+:root {
     --footer-margin: 5em;
 }
 
 /* Flex option is implemented. See: https://stackoverflow.com/a/20352949 */
 
-#Copyright{
+#Copyright {
     display: grid;
     position: relative;
     grid-template-columns: 1fr 1fr;
@@ -22,7 +22,7 @@
     font-size: 1.1rem;
     font-weight: 900;
     color: var(--footer-heading-color);
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
 }
 
 #footer-desc {
@@ -30,7 +30,7 @@
 }
 
 #footer-desc-p {
-    font-size: .8rem;
+    font-size: 0.8rem;
 }
 
 #footer-portfolio-link {
@@ -46,7 +46,7 @@
 
 #footer-developer-handle {
     display: inline-block;
-    padding-left: .65em;
+    padding-left: 1.2em;
     font-size: 1rem;
     font-weight: 400;
 }
@@ -54,7 +54,8 @@
 .footer-dev-handle-link {
     color: var(--text-color);
     text-decoration: none;
-    transition: color .4s;
+    transition: color 0.4s;
+    display: flex;
 }
 
 .footer-dev-handle-link:hover {
@@ -87,8 +88,8 @@
 }
 
 .ful-link-text {
-    font-size: .75rem;
-    transition: color .4s;
+    font-size: 0.75rem;
+    transition: color 0.4s;
 }
 
 .ful-link:hover {
@@ -101,16 +102,17 @@
     flex-direction: column;
 }
 
-#ful-head, #footer-socials-head {
+#ful-head,
+#footer-socials-head {
     font-size: 1rem;
     color: var(--accent-color);
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
     font-weight: 700;
 }
 
 #footer-socials-container {
     display: flex;
-    gap: .5rem;
+    gap: 0.5rem;
     font-size: 1.25rem;
 }
 
@@ -123,7 +125,7 @@
     width: 1.1em;
     height: 1.1em;
     fill: var(--text-color);
-    transition: fill .4s;   
+    transition: fill 0.4s;
 }
 
 .fsl-icon:hover {
@@ -149,7 +151,6 @@
     text-align: center;
 }
 
-
 /* Media queries */
 
 @media screen and (min-width: 345px) {
@@ -157,7 +158,7 @@
         margin-top: 9em;
         padding-top: 4em;
     }
-    
+
     #footer-project-name {
         font-size: 1.25rem;
     }
@@ -169,24 +170,24 @@
 
     #ful-head {
         font-size: 1.2rem;
-        padding-bottom: .5em;
+        padding-bottom: 0.5em;
     }
 
     #ful-container {
         gap: 1.5em;
     }
 
-    .ful-link-text{
-        font-size: .9rem;
+    .ful-link-text {
+        font-size: 0.9rem;
     }
 
     #footer-socials-head {
         font-size: 1.2rem;
-        padding-bottom: .5em;
+        padding-bottom: 0.5em;
     }
 
     #footer-socials-container {
-        gap: clamp(.5em, 2.75vw, 2em);
+        gap: clamp(0.5em, 2.75vw, 2em);
     }
 
     .fsl-icon {
@@ -196,13 +197,12 @@
     }
 }
 
-
 @media screen and (min-width: 861px) {
     #footer-project-name {
         grid-area: fpname;
     }
 
-    #footer-desc { 
+    #footer-desc {
         grid-area: fdesc;
     }
 
@@ -214,7 +214,7 @@
         margin: 2em 0;
     }
 
-    #footer-useful-links { 
+    #footer-useful-links {
         grid-area: flinks;
     }
 
@@ -222,19 +222,19 @@
         grid-area: fsocials;
     }
 
-    #footer-copyright { 
+    #footer-copyright {
         grid-area: fcopyr;
     }
 
-    #Copyright{
+    #Copyright {
         margin-top: 15em;
         padding: 3.75em 5em 0;
 
-        grid-template: 
+        grid-template:
             "fpname fpname . flinks fsocials" auto
             "fdesc fdesc . flinks fsocials" auto
             "fdevcard fdevcard . flinks fsocials" auto
-            "fcopyr fcopyr fcopyr fcopyr fcopyr" auto / 1fr 1fr 1fr 1fr 1fr
+            "fcopyr fcopyr fcopyr fcopyr fcopyr" auto / 1fr 1fr 1fr 1fr 1fr;
     }
 
     #footer-project-name {
@@ -242,7 +242,6 @@
         font-weight: 600;
     }
 
-    
     #footer-desc-p {
         font-size: 1.1rem;
     }
@@ -270,7 +269,8 @@
         gap: 1.75em;
     }
 
-    #ful-head, #footer-socials-head {
+    #ful-head,
+    #footer-socials-head {
         font-size: 1.35rem;
     }
 
@@ -293,7 +293,7 @@
         width: 1.15em;
         height: 1.15em;
         fill: var(--text-color);
-        transition: fill .4s;   
+        transition: fill 0.4s;
     }
 
     .fsl-icon:hover {
@@ -301,7 +301,7 @@
     }
 
     #footer-copyright {
-        font-size: .85rem;
+        font-size: 0.85rem;
         margin-top: 4em;
         padding-bottom: 2.5em;
     }
@@ -312,7 +312,7 @@
         right: 0em;
         bottom: 1.5em;
     }
-    
+
     #footer-img-1 {
         transform: rotate(-14deg);
     }

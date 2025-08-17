@@ -5,7 +5,7 @@ import { GithubIcon, EmailIcon, LinkedInIcon, TwitterIcon } from "./SvgIcons";
 function AboutPage() {
     return (
         <div id="AboutPage">
-            <h1 id="about-page-head">Hi There👋!</h1>
+            <h1 id="about-page-head">Hi There 👋!</h1>
             <br />
             <p id="welcome-text">Welcome to the NASA Space Gallery.</p>
 
@@ -48,14 +48,14 @@ function AboutPage() {
             </ul>
 
             <p className="project-desc">
-                Working in this project has been an a great learning experience.
+                Working on this project has been an a great learning experience.
                 It has given me a deep appreciation for the effort that goes
-                into building features we often take for granted on websites. I
-                am truly happy for taking the initiative to start this project,
-                as it has taught me invaluable lessons. This was my first
-                full-stack project, and I am proud of the work I’ve done. While
-                the website may be a little rough around the edges, especially
-                the design part, functionality-wise it is quite robust.
+                into building features we often take for granted on websites.
+                I’m glad I took the initiative to start this project, because it
+                has taught me many useful lessons. This was my first full-stack
+                project, and I am proud of the work I’ve done. While the website
+                may be a little rough around the edges, especially the design
+                part, functionality-wise it is quite robust.
             </p>
 
             <p className="project-desc">
@@ -91,7 +91,15 @@ function AboutPage() {
                             className="adc-handle-link"
                             target="_blank"
                         >
-                            @Prantaneel Pegu
+                            <span>@</span>
+                            <span
+                                style={{
+                                    marginLeft: "0.175em",
+                                    marginTop: "0.1em",
+                                }}
+                            >
+                                Prantaneel Pegu
+                            </span>
                         </a>
                     </p>
                 </div>

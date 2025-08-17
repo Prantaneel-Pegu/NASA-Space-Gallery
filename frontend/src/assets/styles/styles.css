@@ -29,6 +29,7 @@
     --download-btn-border: transparent;
 
     --code-block-color: var(--primary-color);
+    --code-underline-color: black;
 
     --potd-copyright: var(--text-color);
 
@@ -50,9 +51,8 @@
     --navbar-height: 94px;
     --gallery-mtop: var(--navbar-height);
 
-    --loader-color-1: var(--primary-color);
-    --loader-color-2: var(--secondary-color);
-    --loader-color-3: var(--accent-color);
+    --loader-color-1: #a7cfff;
+    --loader-color-2: #7fb7ff;
 }
 
 /* General Classes */
@@ -112,6 +112,7 @@ body.dark-mode {
     --download-btn-border: black;
 
     --code-block-color: #284e8a;
+    --code-underline-color: white;
 
     --potd-copyright: var(--primary-color);
 
@@ -125,9 +126,8 @@ body.dark-mode {
 
     --project-tech-text: #3c74ce;
 
-    --loader-color-1: #1c1515;
-    --loader-color-2: #666;
-    --loader-color-3: #000;
+    --loader-color-1: #1f4f91;
+    --loader-color-2: #163b6c;
 }
 
 /* Scrollbar */
@@ -152,8 +152,8 @@ body.dark-mode {
     margin: 18rem auto;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 8px solid #1f4f91;
-    border-right-color: #163b6c;
+    border: 8px solid var(--loader-color-1);
+    border-right-color: var(--loader-color-2);
     animation: l2 1s infinite linear;
 }
 
