@@ -30,7 +30,7 @@
 }
 
 #gallery-image-address {
-    display: inline-block;
+    display: block;
     font-size: 1rem;
     font-weight: bold;
     background-color: var(--code-block-color);
@@ -68,18 +68,22 @@
     font-size: 0.75rem;
     margin: 3em 0 3em 0;
     text-decoration: none;
-    padding: 1em 1.5em;
+    padding: 1em 1.75em;
     border: 2px solid var(--download-btn-border);
     border-radius: 0.5em;
     box-shadow: 1px 1px 1px var(--download-btn-shadow);
     background-color: var(--download-btn);
+    font-family: Inter, Poppins, sans-serif;
+    transition: 0.2s linear;
 }
 
-#gallery-download-link h2 {
+#gallery-download-link p {
+    font-size: 1rem;
     font-weight: 500;
 }
 
 #gallery-download-link:hover {
+    color: var(--download-btn-hover);
     cursor: pointer;
 }
 
@@ -142,6 +146,10 @@
         padding-top: 0;
     }
 
+    #gi-description {
+        font-size: 1.1rem;
+    }
+
     #gallery-image-container {
         height: fit-content;
         float: none;
@@ -153,9 +161,14 @@
 
     #gallery-image-address {
         display: block;
+        font-size: 1.2rem;
     }
 
     #gallery-address-heading {
+        font-size: 1.2rem;
+    }
+
+    #gallery-download-link p {
         font-size: 1.2rem;
     }
 }

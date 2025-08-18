@@ -27,6 +27,7 @@
     --download-btn: rgb(215, 68, 68);
     --download-btn-shadow: var(--primary-color);
     --download-btn-border: transparent;
+    --download-btn-hover: white;
 
     --code-block-color: var(--primary-color);
     --code-underline-color: black;
@@ -110,6 +111,7 @@ body.dark-mode {
     --download-btn: rgb(134, 40, 40);
     --download-btn-shadow: black;
     --download-btn-border: black;
+    --download-btn-hover: black;
 
     --code-block-color: #284e8a;
     --code-underline-color: white;

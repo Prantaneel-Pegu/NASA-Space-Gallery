@@ -87,23 +87,21 @@
     font-size: 0.75rem;
     margin: 2.75em 0 1em 0;
     text-decoration: none;
-    padding: 1em 1.5em;
+    padding: 1em 1.75em;
     border: 2px solid var(--download-btn-border);
     border-radius: 0.5em;
     box-shadow: 1px 1px 1px var(--download-btn-shadow);
     background-color: var(--download-btn);
+    transition: 0.2s linear;
 }
 
 #potd-download-text {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
 }
 
-/* #potd-download-link:hover {
-    text-decoration: underline;
-} */
-
 #potd-download-link:hover {
+    color: var(--download-btn-hover);
     cursor: pointer;
 }
 
@@ -203,10 +201,14 @@
     }
 
     #potd-address-heading {
-        font-size: 1.15rem;
+        font-size: 1.2rem;
     }
 
     #potd-download-link {
         margin-top: 1.75em;
+    }
+
+    #potd-download-text {
+        font-size: 1.2rem;
     }
 }

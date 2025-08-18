@@ -20,19 +20,14 @@ function PictureOfTheDay() {
         miscError: ``,
     };
 
-    const handleDownload = async () => {
-        const response = await fetch(potdResults.hdUrl, {
-            mode: "cors",
-        });
-        const blob = await response.blob();
-        const url = URL.createObjectURL(blob);
+    const handleDownload = () => {
+        const continueDownload = confirm(
+            "The NASA APOD API doesn't allow direct downloads from external sites (like this one). Do you want to open the original image instead, so you can save it manually?"
+        );
 
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = `${potdResults.title}.jpg`; // jpg is assumed because it is most common
-        link.click();
-
-        URL.revokeObjectURL(url);
+        if (continueDownload) {
+            window.location.href = potdResults.hdUrl;
+        }
     };
 
     getPotd()
@@ -160,12 +155,6 @@ function PictureOfTheDay() {
                                 <p>Not provided.</p>
                             )}
                         </code>
-                        <button
-                            id="potd-download-link"
-                            onClick={handleDownload}
-                        >
-                            <p id="potd-download-text">Download Image</p>
-                        </button>
                         {/* <a
                             id="potd-download-link"
                             href={potdResults.hdUrl}
@@ -173,6 +162,12 @@ function PictureOfTheDay() {
                         >
                             <p id="potd-download-text">Download Image</p>
                         </a> */}
+                        <button
+                            id="potd-download-link"
+                            onClick={handleDownload}
+                        >
+                            <p id="potd-download-text">Download Image</p>
+                        </button>
                     </div>
                 </div>
             </div>

@@ -133,7 +133,7 @@ function GalleryImage() {
                             id="gallery-download-link"
                             onClick={handleDownload}
                         >
-                            <h2>Download Image</h2>
+                            <p>Download Image</p>
                         </button>
                     </div>
                 </div>

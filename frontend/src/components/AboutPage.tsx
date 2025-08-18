@@ -48,23 +48,23 @@ function AboutPage() {
             </ul>
 
             <p className="project-desc">
-                Working on this project has been an a great learning experience.
-                It has given me a deep appreciation for the effort that goes
-                into building features we often take for granted on websites.
-                I’m glad I took the initiative to start this project, because it
-                has taught me many useful lessons. This was my first full-stack
-                project, and I am proud of the work I’ve done. While the website
-                may be a little rough around the edges, especially the design
-                part, functionality-wise it is quite robust.
+                Working on this project has been a great learning experience. It
+                has given me a deep appreciation for the effort that goes into
+                building features we often take for granted on websites. I’m
+                glad I took the initiative to start this project, because it has
+                pushed me to explore new tools and problem-solving approaches.
+                This was my first full-stack project, and I am proud of the work
+                I’ve done. While the website may be a little rough around the
+                edges, especially the design part, functionality-wise it is
+                quite robust.
             </p>
 
             <p className="project-desc">
-                Thank you, my anonymous visitor, for taking the time to view my
-                project. I wish that you have had a satisfactory experience
-                using this website. Please do let me know if there are any
-                shortcomings you come to find. I would really love to hear about
-                your experience using my website. As always, I'll be available
-                at my{" "}
+                Thank you for taking the time to view my project. I wish that
+                you have had a satisfactory experience using this website.
+                Please do let me know if there are any bugs you come to find. I
+                would really love to hear about your experience using my
+                website. As always, I'll be available at my{" "}
                 <a
                     href="https://www.linkedin.com/in/prantaneel-pegu/"
                     id="footer-portfolio-link"
