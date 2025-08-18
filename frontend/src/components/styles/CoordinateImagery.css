@@ -20,6 +20,15 @@
     font-size: 1rem;
 }
 
+#ci-form-fieldset {
+    padding: 0.5em 0.75em;
+}
+
+#ci-form-legend {
+    font-size: 1.1rem;
+    margin-left: -3px;
+}
+
 #ci-form-latitude-container,
 #ci-form-longitude-container,
 #ci-form-zoom-container {
@@ -68,11 +77,12 @@
 
 #ci-form-submit-btn {
     display: block;
+    font-family: Inter, Poppins, sans-serif;
     color: var(--text-color);
-    margin: 1em;
+    margin: 1em 0.4rem;
     margin-top: 0;
     text-decoration: none;
-    padding: 0.5em 0.75em;
+    padding: 0.65em 1em;
     border: 2px solid var(--download-btn-border);
     border-radius: 0.5em;
     box-shadow: 1px 1px 1px var(--download-btn-shadow);
@@ -178,9 +188,9 @@
         max-width: 35em;
     }
 
-    #ci-form-fieldset {
-        padding: 0.5em 0.75em;
-    }
+    /* #ci-form-fieldset {
+
+    } */
 
     #ci-form-legend {
         font-size: 1.25rem;
@@ -208,6 +218,8 @@
 
     #ci-form-submit-btn {
         font-size: 1rem;
+        margin: 1em 0.5rem;
+        padding: 0.5rem 1rem;
     }
 
     #ci-img-data {

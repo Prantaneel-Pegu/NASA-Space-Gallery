@@ -22,7 +22,7 @@ function PictureOfTheDay() {
 
     const handleDownload = () => {
         const continueDownload = confirm(
-            "The NASA APOD API doesn't allow direct downloads from external sites (like this one). Do you want to open the original image instead, so you can save it manually?"
+            "The NASA APIs don't allow direct downloads from external sites (like this one). Do you want to open the original image instead, so you can save it manually?"
         );
 
         if (continueDownload) {

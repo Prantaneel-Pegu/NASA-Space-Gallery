@@ -22,17 +22,14 @@ function GalleryImage() {
         scrollTo(0, scrollPosition.current);
     });
 
-    const handleDownload = async () => {
-        const response = await fetch(imageData.imageLink, { mode: "cors" });
-        const blob = await response.blob();
-        const url = URL.createObjectURL(blob);
+    const handleDownload = () => {
+        const continueDownload = confirm(
+            "The NASA APIs don't allow direct downloads from external sites (like this one). Do you want to open the original image instead, so you can save it manually?"
+        );
 
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = `${imageData.title}.jpg`; // jpg is assumed because it is most common
-        link.click();
-
-        URL.revokeObjectURL(url);
+        if (continueDownload) {
+            window.location.href = imageData.imageLink;
+        }
     };
 
     useEffect(() => {
