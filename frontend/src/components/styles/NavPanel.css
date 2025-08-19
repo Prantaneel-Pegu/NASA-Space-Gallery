@@ -15,11 +15,11 @@
 
 #nav-open {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     position: fixed;
     top: 0;
     left: 0;
-    margin: 0.5em;
+    margin: 0.35em;
     width: 1.1em;
     height: 1.1em;
 }
@@ -30,12 +30,12 @@
 
 #nav-close {
     display: block;
-    font-size: 1.75rem;
+    font-size: 2.25rem;
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    margin: 0.35em;
+    margin: 0.175em;
     width: 1.1em;
     height: 1.1em;
 }
@@ -54,7 +54,7 @@
 
 #nav-heading {
     color: var(--text-color);
-    margin: 1em 1.5em 1.55em;
+    margin: 1.5em 1.5em 1.55em;
     font-size: 1.35rem;
     font-weight: 700;
 }
@@ -64,7 +64,7 @@
     margin-bottom: 1.25em;
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 1rem;
     font-weight: 500;
     list-style: none;
 }
@@ -72,7 +72,7 @@
 .nav_link {
     font-size: 1.15rem;
     text-decoration: none;
-    padding: 0.8em 1.75em;
+    padding: 0.8em 3.5em 0.8em 1.75em;
     color: var(--text-color);
     transition: color 0.4s, background-color 0.4s;
 }
